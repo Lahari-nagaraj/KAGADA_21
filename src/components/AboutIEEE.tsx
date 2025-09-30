@@ -6,16 +6,18 @@ const AboutIEEE: React.FC = () => {
     <section className="py-20 bg-gradient-to-br from-red-50 via-white to-yellow-50">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
+          {/* Title */}
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-6xl font-bold mb-6">
               <span className="text-red-600">About</span>
-              <span className="text-yellow-500 ml-4">IEEE</span>
+              <span className="text-yellow-500 ml-4">IEEE UVCE</span>
             </h2>
             <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
-              The Institute of Electrical and Electronics Engineers - Advancing technology for humanity
+              Striding Ahead!
             </p>
           </div>
 
+          {/* Cards */}
           <div className="grid md:grid-cols-3 gap-8 mb-12">
             {/* Card 1 */}
             <div className="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-2 border-transparent hover:border-red-200">
@@ -60,34 +62,32 @@ const AboutIEEE: React.FC = () => {
             </div>
           </div>
 
-          {/* IEEE UVCE Section */}
-          <div className="bg-gradient-to-r from-red-600 to-yellow-500 p-8 md:p-12 rounded-3xl text-white">
-            <div className="text-center">
-              <h3 className="text-3xl md:text-4xl font-bold mb-6">IEEE UVCE Student Branch</h3>
-              <p className="text-xl mb-8 opacity-90 max-w-4xl mx-auto leading-relaxed">
-                Our student branch at UVCE is committed to fostering technical excellence, professional development, 
-                and innovation among students. We organize workshops, seminars, and technical events like KAGADA to 
-                bridge the gap between academic learning and industry requirements.
-              </p>
+          {/* IEEE UVCE Section (Updated Layout) */}
+          <div className="grid md:grid-cols-2 gap-12 items-center mt-16">
+            {/* Left: Text */}
+            <div>
               
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12">
-                <div className="text-center">
-                  <div className="text-3xl font-bold">500+</div>
-                  <div className="text-sm opacity-80">Active Members</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold">25+</div>
-                  <div className="text-sm opacity-80">Annual Events</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold">100+</div>
-                  <div className="text-sm opacity-80">Industry Connects</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold">15+</div>
-                  <div className="text-sm opacity-80">Years Legacy</div>
-                </div>
-              </div>
+              <p className="text-lg text-gray-700 leading-relaxed text-justify">
+                IEEE UVCE has come to be one of the most recognised Student Branch across the Region 10 of IEEE. 
+                Rekindled in 2001, the student branch has since grown to the strength of around 400 student members. 
+                The organization's commitment to improving and upgrading its members' core knowledge base to industry 
+                standards is reflected in a variety of activities organised throughout the year. Symposiums, guest lectures, 
+                hands-on workshops, the Annual National Level Technical Student Conference - KAGADA, the Annual National 
+                Level Technical Extravaganza - IMPETUS, Annual National Level Hackathon - CodeFury and industrial tours 
+                are some of the events held throughout the year. We stood with our motto “Striding Ahead” even during the 
+                pandemic, engaging the community not only with technical skills but also in humanitarian and societal causes. 
+                Our diligent efforts haven’t been left unrecognized. In September 2023, IEEE UVCE received a token of appreciation 
+                as 2023 IEEE R10 Special Recognition of Student Branch Award by IEEE R10 Awards and Recognitions Committee.
+              </p>
+            </div>
+
+            {/* Right: Logo */}
+            <div className="flex justify-center">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/6/6c/IEEE_logo.svg"
+                alt="IEEE Logo"
+                className="w-64 h-auto object-contain"
+              />
             </div>
           </div>
         </div>

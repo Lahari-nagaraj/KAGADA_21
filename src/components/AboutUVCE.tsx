@@ -21,26 +21,28 @@ const AboutUVCE: React.FC = () => {
               </div>
 
               <div className="grid md:grid-cols-2 gap-12 items-center">
+                {/* Paragraph Section */}
                 <div className="space-y-6">
                   <div className="transform hover:scale-105 transition-transform duration-300">
-                    <h3 className="text-2xl font-bold text-red-700 mb-4">Excellence in Engineering</h3>
-                    <p className="text-gray-700 leading-relaxed">
-                      University Visvesvaraya College of Engineering (UVCE) is a premier institution known for its 
-                      outstanding contributions to engineering education and research. Established with a vision to 
-                      create world-class engineers, UVCE has been at the forefront of technological innovation.
-                    </p>
-                  </div>
-
-                  <div className="transform hover:scale-105 transition-transform duration-300">
-                    <h3 className="text-2xl font-bold text-yellow-600 mb-4">Legacy & Innovation</h3>
-                    <p className="text-gray-700 leading-relaxed">
-                      With decades of academic excellence, UVCE continues to foster creativity, critical thinking, 
-                      and technological advancement. Our students and faculty contribute significantly to research 
-                      and development in various engineering disciplines.
+                    <p className="text-gray-700 leading-relaxed text-lg">
+                      Established in the year 1917 by Bharat Ratna Sir M Visvesvaraya,
+                      University of Visvesvaraya College of Engineering (UVCE) is an AICTE
+                      approved establishment imparting education in B.E/B.Tech, M.E/M.Tech,
+                      B.Arch, M.Sc (Engineering) and PhD degrees in the various disciplines
+                      of Engineering and Architecture. After celebrating its centenary year
+                      in 2018, this college has marked its name amongst one of the most
+                      prestigious institutions in the country and it is designated as an
+                      autonomous college from 25th March, 2022. The college hosts several
+                      successful technical and non–technical events with diligent efforts
+                      from the students. Every year, the college boasts of quality placements
+                      while taking pride in its alumni's successful ventures. In a way, UVCE
+                      not only shapes the careers of its students but also makes them fit to
+                      face the real-world challenges that are posed in society.
                     </p>
                   </div>
                 </div>
 
+                {/* Image + Stats */}
                 <div className="relative">
                   <div className="bg-gradient-to-br from-red-100 to-yellow-100 p-8 rounded-2xl">
                     <img 
@@ -53,7 +55,7 @@ const AboutUVCE: React.FC = () => {
                   {/* Floating Stats */}
                   <div className="absolute -top-4 -right-4 bg-white p-4 rounded-xl shadow-lg border-2 border-red-200">
                     <div className="text-center">
-                      <div className="text-2xl font-bold text-red-600">50+</div>
+                      <div className="text-2xl font-bold text-red-600">100+</div>
                       <div className="text-sm text-gray-600">Years Legacy</div>
                     </div>
                   </div>
