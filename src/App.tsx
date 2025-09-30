@@ -33,9 +33,9 @@ function App() {
     <div className="min-h-screen bg-white">
       <Hero />
       <About />
-      <AboutUVCE />
+      {/* <AboutUVCE />
       <AboutIEEE />
-      <AboutKagada />
+      <AboutKagada /> */}
       <ExploreTracks />
       <PreviousWinners />
       <Gallery />

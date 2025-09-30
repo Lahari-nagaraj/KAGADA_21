@@ -29,6 +29,48 @@ const AboutPage = () => {
           .font-roboto-mono { font-family: 'Roboto Mono', monospace; }
       `}</style>
 
+      {/* --- 3. AboutUVCE Section --- */}
+      <section className="py-16 sm:py-20 bg-slate-50 font-roboto-mono">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <SectionTitle>
+              About <span className="text-blue-600">UVCE</span>
+            </SectionTitle>
+            <div className={`${cardStyle} p-8 sm:p-12`}>
+              <div className="grid md:grid-cols-2 gap-12 items-center">
+                <div className="space-y-6">
+                  <p className="text-slate-700 leading-relaxed text-justify">
+                    Established in 1917 by Bharat Ratna Sir M. Visvesvaraya,
+                    University Visvesvaraya College of Engineering (UVCE) is a
+                    prestigious, AICTE-approved institution. After celebrating
+                    its centenary, UVCE became an autonomous college in March
+                    2022. The college hosts numerous successful events driven by
+                    diligent students and boasts quality placements and
+                    successful alumni ventures. UVCE not only shapes careers but
+                    also prepares students to face real-world challenges.
+                  </p>
+                </div>
+                <div className="space-y-6">
+                  <img
+                    src="https://images.pexels.com/photos/256490/pexels-photo-256490.jpeg?auto=compress&cs=tinysrgb&w=800"
+                    alt="Students in a library"
+                    className="w-full h-64 object-cover rounded-lg shadow-md"
+                  />
+                  <div className="bg-blue-600/5 p-4 rounded-lg border border-blue-600/10 text-center">
+                    <div className="text-3xl font-bold text-slate-800">
+                      100+
+                    </div>
+                    <div className="text-sm text-slate-600">
+                      Years of Legacy
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* --- 1. AboutIEEE Section --- */}
       <section className="py-16 sm:py-20 bg-slate-50 font-roboto-mono">
         <div className="container mx-auto px-4">
@@ -89,7 +131,7 @@ const AboutPage = () => {
                 </div>
                 <div className="flex justify-center">
                   <img
-                    src="https://upload.wikimedia.org/wikipedia/commons/6/6c/IEEE_logo.svg"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFxPh-uOxPwwavbagc0XXc7gNEXriflhjjRg&s"
                     alt="IEEE Logo"
                     className="w-64 h-auto object-contain"
                   />
@@ -163,48 +205,6 @@ const AboutPage = () => {
                       <div className="text-xs text-slate-600">{stat.label}</div>
                     </div>
                   ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* --- 3. AboutUVCE Section --- */}
-      <section className="py-16 sm:py-20 bg-slate-50 font-roboto-mono">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <SectionTitle>
-              About <span className="text-blue-600">UVCE</span>
-            </SectionTitle>
-            <div className={`${cardStyle} p-8 sm:p-12`}>
-              <div className="grid md:grid-cols-2 gap-12 items-center">
-                <div className="space-y-6">
-                  <p className="text-slate-700 leading-relaxed text-justify">
-                    Established in 1917 by Bharat Ratna Sir M. Visvesvaraya,
-                    University Visvesvaraya College of Engineering (UVCE) is a
-                    prestigious, AICTE-approved institution. After celebrating
-                    its centenary, UVCE became an autonomous college in March
-                    2022. The college hosts numerous successful events driven by
-                    diligent students and boasts quality placements and
-                    successful alumni ventures. UVCE not only shapes careers but
-                    also prepares students to face real-world challenges.
-                  </p>
-                </div>
-                <div className="space-y-6">
-                  <img
-                    src="https://images.pexels.com/photos/256490/pexels-photo-256490.jpeg?auto=compress&cs=tinysrgb&w=800"
-                    alt="Students in a library"
-                    className="w-full h-64 object-cover rounded-lg shadow-md"
-                  />
-                  <div className="bg-blue-600/5 p-4 rounded-lg border border-blue-600/10 text-center">
-                    <div className="text-3xl font-bold text-slate-800">
-                      100+
-                    </div>
-                    <div className="text-sm text-slate-600">
-                      Years of Legacy
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
