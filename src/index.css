@@ -9,153 +9,74 @@
   }
   
   body {
+    @apply bg-slate-900 text-slate-200;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     line-height: 1.6;
   }
 }
 
-/* Custom Animations */
+/* Custom Utilities */
 @layer utilities {
-  .animate-fade-in {
-    animation: fadeIn 1.5s ease-out;
+  /* Custom Scrollbar for a modern look */
+  ::-webkit-scrollbar {
+    width: 8px;
   }
-
-  .animate-slide-up {
-    animation: slideUp 0.8s ease-out;
+  ::-webkit-scrollbar-track {
+    background: #0f172a;
   }
-
-  .animate-bounce-slow {
-    animation: bounce 3s infinite;
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #38bdf8, #818cf8);
+    border-radius: 4px;
   }
-
-  .animate-pulse-slow {
-    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, #0ea5e9, #6366f1);
   }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
+  ::selection {
+    background-color: #6366f1;
+    color: white;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  :focus-visible {
+    outline: 2px solid #38bdf8;
+    outline-offset: 2px;
+    border-radius: 2px;
   }
-}
-
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(50px);
+  * {
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 200ms;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  .text-ink {
+    color: #181510 !important;
   }
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: #f1f5f9;
-}
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, #dc2626, #f59e0b);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(to bottom, #b91c1c, #d97706);
-}
-
-/* Selection Color */
-::selection {
-  background-color: #dc2626;
-  color: white;
-}
-
-/* Focus Styles */
-button:focus,
-a:focus {
-  outline: 2px solid #dc2626;
-  outline-offset: 2px;
-}
-
-/* Smooth Transitions */
-* {
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
-
-/* Custom Gradient Text */
-.gradient-text {
-  background: linear-gradient(135deg, #dc2626, #f59e0b);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* Custom Shadow */
-.shadow-glow {
-  box-shadow: 0 0 20px rgba(220, 38, 38, 0.3), 0 0 40px rgba(245, 158, 11, 0.2);
-}
-
-/* Loading Animation */
-.loading-dots {
-  display: inline-block;
-}
-
-.loading-dots::after {
-  content: '';
-  animation: ellipsis 1.5s infinite;
-}
-
-@keyframes ellipsis {
-  0% { content: ''; }
-  25% { content: '.'; }
-  50% { content: '..'; }
-  75% { content: '...'; }
-}
-
-/* Hover Effects */
-.hover-lift {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.hover-lift:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-}
-
-/* Background Patterns */
-.bg-grid-pattern {
-  background-image: radial-gradient(circle, rgba(220, 38, 38, 0.1) 1px, transparent 1px);
-  background-size: 20px 20px;
-}
-
-/* Glass Effect */
-.glass {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-/* Responsive Design Helpers */
-@media (max-width: 768px) {
-  .text-responsive {
-    font-size: clamp(1.5rem, 5vw, 3rem);
+/* Reusable Components */
+@layer components {
+  .shadow-glow-sky {
+    box-shadow: 0 0 20px rgba(14, 165, 233, 0.3), 0 0 40px rgba(14, 165, 233, 0.2);
+  }
+  .shadow-glow-violet {
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.3), 0 0 40px rgba(139, 92, 246, 0.2);
+  }
+  .hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .hover-lift:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
   }
 }
 
-/* Print Styles */
-@media print {
-  .no-print {
-    display: none;
+/* General Helper Classes */
+@layer utilities {
+  @media (max-width: 768px) {
+    .text-responsive {
+      font-size: clamp(1.5rem, 5vw, 3rem);
+    }
+  }
+  @media print {
+    .no-print {
+      display: none;
+    }
   }
 }
