@@ -1,5 +1,25 @@
-import React, { useState } from 'react';
-import { ChevronDown, ChevronUp, HelpCircle } from 'lucide-react';
+import React, { useState } from "react";
+import { ChevronDown, ChevronUp, HelpCircle } from "lucide-react";
+
+// --- Reusable Blueprint Card Style ---
+const cardStyle = `bg-white/70 backdrop-blur-md border border-blue-600/20 shadow-lg rounded-lg
+                   bg-[linear-gradient(rgba(59,130,246,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.05)_1px,transparent_1px)] 
+                   bg-[length:2rem_2rem]`;
+
+// --- Section Title Component ---
+const SectionTitle: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => (
+  <div className="text-center mb-12 sm:mb-16">
+    <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-blue-600/10 rounded-full mb-6">
+      <HelpCircle className="text-blue-600" size={40} />
+    </div>
+    <h2 className="font-rajdhani text-4xl sm:text-5xl md:text-6xl font-bold text-slate-900 tracking-wider">
+      {children}
+    </h2>
+    <div className="w-32 h-1 bg-blue-600/50 mx-auto rounded-full mt-4"></div>
+  </div>
+);
 
 const FAQs: React.FC = () => {
   const [openFAQ, setOpenFAQ] = useState<number | null>(0);
@@ -7,36 +27,34 @@ const FAQs: React.FC = () => {
   const faqs = [
     {
       question: "What is KAGADA 2025?",
-      answer: "KAGADA 2025 is a National Level Tech Fest organized by IEEE UVCE Student Branch. It's a premier platform for students across the country to showcase their technical skills, innovative projects, and research work through various competitions and presentations."
+      answer:
+        "KAGADA 2025 is a National Level Tech Fest organized by IEEE UVCE Student Branch. It's a premier platform for students across the country to showcase their technical skills, innovative projects, and research work through various competitions and presentations.",
     },
     {
       question: "When and where is KAGADA 2025 taking place?",
-      answer: "KAGADA 2025 is scheduled for November 8th, 2025, at University Visvesvaraya College of Engineering (UVCE), Bangalore. The event will span the entire day with multiple tracks running simultaneously."
+      answer:
+        "KAGADA 2025 is scheduled for November 8th, 2025, at University Visvesvaraya College of Engineering (UVCE), Bangalore. The event will span the entire day with multiple tracks running simultaneously.",
     },
     {
       question: "Who can participate in KAGADA 2025?",
-      answer: "KAGADA is open to all undergraduate and postgraduate students from engineering colleges across India. Students can participate individually or as teams, depending on the specific track requirements."
+      answer:
+        "KAGADA is open to all undergraduate and postgraduate students from engineering colleges across India. Students can participate individually or as teams, depending on the specific track requirements.",
     },
     {
       question: "What are the different tracks available?",
-      answer: "KAGADA 2025 features five main tracks: Poster Presentation, Paper Presentation, Project Presentation, Ottige Kaliyona (technical games), and Food for Cause (social initiative). Each track has its own set of rules and evaluation criteria."
+      answer:
+        "KAGADA 2025 features five main tracks: Poster Presentation, Paper Presentation, Project Presentation, Ottige Kaliyona (technical games), and Food for Cause (social initiative). Each track has its own set of rules and evaluation criteria.",
     },
     {
       question: "How do I register for the event?",
-      answer: "Registration will open soon through our official website. Participants will need to select their preferred tracks, submit required documents, and pay the registration fee. Early bird discounts will be available for the first 200 registrations."
-    },
-    {
-      question: "What are the prizes and awards?",
-      answer: "KAGADA 2025 offers prizes worth over ₹5 lakhs across all tracks. Winners will receive cash prizes, certificates, and trophies. Additionally, top performers will get opportunities for internships and job placements with our industry partners."
+      answer:
+        "Registration will open soon through our official website. Participants will need to select their preferred tracks, submit required documents, and pay the registration fee. Early bird discounts will be available.",
     },
     {
       question: "Are there any accommodation facilities?",
-      answer: "Yes, we provide accommodation assistance for outstation participants. Limited on-campus accommodation will be available on a first-come, first-served basis. We also have tie-ups with nearby hostels and hotels for additional accommodation options."
+      answer:
+        "Yes, we provide accommodation assistance for outstation participants. Limited on-campus accommodation will be available on a first-come, first-served basis. We also have tie-ups with nearby hostels and hotels.",
     },
-    {
-      question: "What should I bring on the event day?",
-      answer: "Participants should bring their college ID, registration confirmation, laptops/devices for presentations, and any materials specific to their track. Detailed guidelines will be shared with registered participants closer to the event date."
-    }
   ];
 
   const toggleFAQ = (index: number) => {
@@ -44,93 +62,91 @@ const FAQs: React.FC = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
-      <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto">
-          {/* Header */}
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-red-500 to-yellow-500 rounded-full mb-8">
-              <HelpCircle className="text-white" size={40} />
-            </div>
-            
-            <h2 className="text-4xl md:text-6xl font-bold mb-6">
-              <span className="text-red-600">Frequently</span>
-              <span className="text-yellow-500 ml-4">Asked Questions</span>
-            </h2>
-            <div className="w-32 h-1 bg-gradient-to-r from-red-500 to-yellow-500 mx-auto rounded-full mb-8"></div>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-              Got questions? We've got answers! Here are the most common questions about KAGADA 2025.
-            </p>
-          </div>
+    <>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&family=Roboto+Mono:wght@400;700&display=swap');
+        .font-rajdhani { font-family: 'Rajdhani', sans-serif; }
+        .font-roboto-mono { font-family: 'Roboto Mono', monospace; }
+      `}</style>
 
-          {/* FAQ List */}
-          <div className="space-y-6">
-            {faqs.map((faq, index) => (
-              <div 
-                key={index}
-                className={`bg-white rounded-2xl shadow-lg border-2 transition-all duration-300 overflow-hidden ${
-                  openFAQ === index 
-                    ? 'border-red-200 shadow-2xl transform scale-105' 
-                    : 'border-gray-100 hover:border-red-100 hover:shadow-xl'
-                }`}
-              >
-                <button
-                  className="w-full p-6 text-left flex justify-between items-center hover:bg-gray-50 transition-colors duration-200"
-                  onClick={() => toggleFAQ(index)}
+      <section className="py-16 sm:py-20 bg-slate-50 font-roboto-mono">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <SectionTitle>Frequently Asked Questions</SectionTitle>
+
+            <p className="text-center text-slate-600 max-w-3xl mx-auto leading-relaxed -mt-8 mb-12">
+              Got questions? We've got answers! Here are the most common
+              inquiries about KAGADA 2025.
+            </p>
+
+            {/* FAQ List */}
+            <div className={`${cardStyle} p-4 sm:p-6 space-y-2`}>
+              {faqs.map((faq, index) => (
+                <div
+                  key={index}
+                  className={`border border-transparent rounded-lg transition-all duration-300 overflow-hidden ${
+                    openFAQ === index ? "bg-blue-600/5 border-blue-600/20" : ""
+                  }`}
                 >
-                  <h3 className="text-lg md:text-xl font-bold text-gray-800 pr-4">
-                    {faq.question}
-                  </h3>
-                  <div className={`flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full transition-all duration-300 ${
-                    openFAQ === index 
-                      ? 'bg-red-500 text-white transform rotate-180' 
-                      : 'bg-gray-200 text-gray-600 hover:bg-red-100'
-                  }`}>
-                    {openFAQ === index ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
-                  </div>
-                </button>
-                
-                <div className={`transition-all duration-500 ease-in-out ${
-                  openFAQ === index 
-                    ? 'max-h-96 opacity-100' 
-                    : 'max-h-0 opacity-0'
-                }`}>
-                  <div className="px-6 pb-6">
-                    <div className={`bg-gradient-to-r from-red-50 to-yellow-50 p-4 rounded-xl border-l-4 border-red-500 transition-all duration-500 ${
-                      openFAQ === index ? 'transform translate-y-0' : 'transform -translate-y-4'
-                    }`}>
-                      <p className="text-gray-700 leading-relaxed">
-                        {faq.answer}
-                      </p>
+                  <button
+                    className="w-full p-4 sm:p-5 text-left flex justify-between items-center gap-4 hover:bg-blue-600/5 transition-colors duration-200"
+                    onClick={() => toggleFAQ(index)}
+                  >
+                    <h3 className="text-base sm:text-lg font-bold text-slate-800">
+                      {faq.question}
+                    </h3>
+                    <div
+                      className={`flex-shrink-0 w-7 h-7 flex items-center justify-center rounded-full transition-all duration-300 ${
+                        openFAQ === index
+                          ? "bg-blue-600 text-white transform rotate-180"
+                          : "bg-slate-200 text-slate-600"
+                      }`}
+                    >
+                      <ChevronDown size={20} />
+                    </div>
+                  </button>
+
+                  <div
+                    className={`grid transition-all duration-500 ease-in-out ${
+                      openFAQ === index
+                        ? "grid-rows-[1fr] opacity-100"
+                        : "grid-rows-[0fr] opacity-0"
+                    }`}
+                  >
+                    <div className="overflow-hidden">
+                      <div className="px-4 sm:px-5 pb-5">
+                        <p className="text-slate-600 leading-relaxed text-sm sm:text-base border-t border-blue-600/20 pt-4">
+                          {faq.answer}
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
 
-          {/* Contact Support */}
-          <div className="mt-16 text-center">
-            <div className="bg-gradient-to-r from-red-500 to-yellow-500 p-8 rounded-3xl text-white">
-              <h3 className="text-2xl md:text-3xl font-bold mb-4">
+            {/* Contact Support */}
+            <div className={`${cardStyle} mt-16 text-center p-8 sm:p-12`}>
+              <h3 className="font-rajdhani text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
                 Still Have Questions?
               </h3>
-              <p className="text-lg mb-6 opacity-90">
-                Our team is here to help! Reach out to us for any additional questions or support.
+              <p className="text-slate-600 mb-6 max-w-2xl mx-auto">
+                Our team is here to help! Reach out to us for any additional
+                questions or support.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="bg-white text-red-600 px-6 py-3 rounded-full font-bold hover:shadow-lg transform hover:scale-105 transition-all duration-300">
+                <button className="bg-slate-800 text-white font-bold py-3 px-8 rounded-md text-base hover:bg-slate-700 transition-all duration-300 transform hover:scale-105">
                   Contact Support
                 </button>
-                <button className="border-2 border-white text-white hover:bg-white hover:text-red-600 px-6 py-3 rounded-full font-bold transition-all duration-300">
+                <button className="bg-blue-600/10 text-blue-800 font-bold py-3 px-8 rounded-md text-base hover:bg-blue-600/20 transition-all duration-300 transform hover:scale-105 border border-blue-600/30">
                   Email Us
                 </button>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 
