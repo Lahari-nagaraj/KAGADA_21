@@ -35,7 +35,6 @@ function App() {
       <AboutUVCE />
       <AboutIEEE />
       <AboutKagada />
-      <CountdownTimer />
       <ExploreTracks />
       <PreviousWinners />
       <Gallery />
