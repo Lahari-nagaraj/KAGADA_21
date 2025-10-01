@@ -120,38 +120,32 @@ const Footer: React.FC = () => {
                 </div>
 
                 {/* Developer Credit */}
-                <div className="flex flex-col items-center gap-2 text-slate-500">
-                  <div className="flex items-center gap-2 text-sm">
-                    <Code className="text-blue-600" size={16} />
-                    <span>Developed by</span>
-                    <span className="font-semibold text-slate-600">
-                      Software Development SIG
-                    </span>
-                  </div>
-                  <div className="flex flex-wrap justify-center gap-x-2 text-xs">
-                    {developers.map((dev, idx) => (
-                      <span
-                        key={dev.name}
-                        className="flex items-center gap-x-2"
-                      >
-                        <a
-                          href={dev.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-blue-600 hover:underline"
-                        >
-                          {dev.name}
-                        </a>
-                        {idx < developers.length - 1 && (
-                          <span className="text-slate-400">/</span>
-                        )}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+                <div className="flex flex-row items-center gap-2 text-slate-500 text-sm flex-wrap">
+  <Code className="text-blue-600" size={16} />
+  <span>Developed by</span>
+  <span className="font-semibold text-slate-600">
+    Software Development SIG
+  </span>
+  {developers.map((dev, idx) => (
+    <span key={dev.name} className="flex items-center gap-x-2">
+      <a
+        href={dev.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-blue-600 hover:underline"
+      >
+        {dev.name}
+      </a>
+      {idx < developers.length - 1 && (
+        <span className="text-slate-400">/</span>
+      )}
+    </span>
+  ))}
+</div>
+
 
                 {/* Social Links */}
-                <div className="flex gap-3">
+                {/* <div className="flex gap-3">
                   {Object.entries(socialLinks).map(([platform, url]) => (
                     <a
                       key={platform}
@@ -164,7 +158,7 @@ const Footer: React.FC = () => {
                       {platform}
                     </a>
                   ))}
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
