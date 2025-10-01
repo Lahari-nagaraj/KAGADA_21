@@ -125,17 +125,7 @@ const AfterMovies: React.FC = () => {
             </div>
 
             {/* Subscribe Section */}
-            <div className={`${cardStyle} mt-16 text-center p-8 sm:p-12`}>
-              <h3 className="font-rajdhani text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
-                Don't Miss Future Updates!
-              </h3>
-              <p className="text-slate-600 mb-6 max-w-2xl mx-auto">
-                Subscribe to our channel for exclusive content and early access to KAGADA 2025 announcements.
-              </p>
-              <button className="bg-blue-600 text-white font-bold py-3 px-8 sm:px-10 rounded-md text-base sm:text-lg hover:bg-blue-500 transition-all duration-300 transform hover:scale-105 shadow-lg shadow-blue-500/20">
-                Subscribe to Channel
-              </button>
-            </div>
+            
           </div>
         </div>
 
