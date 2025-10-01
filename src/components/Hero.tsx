@@ -78,7 +78,7 @@ const AIHelperModal: React.FC<AIHelperModalProps> = ({ isOpen, onClose }) => {
 
     // Unchanged API Logic
     const systemPrompt = `You are a helpful and friendly assistant for the KAGADA 2025 technical conference. Event Name: KAGADA 2025. Date: November 8th, 2025. Location: UVCE, Bengaluru. Type: Annual National-Level Technical Student Conference. Activities: Paper presentations, poster exhibitions, technical projects. Answer questions concisely. If you don't know, say information isn't available.`;
-    const apiKey = "";
+    const apiKey = process.env.GEMINI_API_KEY;
     const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
     const payload = {
       contents: [{ parts: [{ text: query }] }],
