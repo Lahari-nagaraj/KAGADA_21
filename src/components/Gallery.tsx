@@ -1,9 +1,7 @@
 import React from "react";
 
 // --- Section Title Component ---
-const SectionTitle: React.FC<{ children: React.ReactNode }> = ({
-  children,
-}) => (
+const SectionTitle: React.FC<{ children: React.ReactNode }> = ({ children }) => (
   <div className="text-center mb-12 sm:mb-16">
     <h2 className="font-rajdhani text-4xl sm:text-5xl md:text-6xl font-bold text-slate-900 tracking-wider">
       {children}
@@ -13,7 +11,6 @@ const SectionTitle: React.FC<{ children: React.ReactNode }> = ({
 );
 
 const Gallery: React.FC = () => {
-  // Sample gallery images (you can add 10 images for each row)
   const imagesRow1 = [
     "https://images.pexels.com/photos/3861972/pexels-photo-3861972.jpeg?auto=compress&cs=tinysrgb&w=800",
     "https://images.pexels.com/photos/3861958/pexels-photo-3861958.jpeg?auto=compress&cs=tinysrgb&w=800",
@@ -41,7 +38,7 @@ const Gallery: React.FC = () => {
   ];
 
   const ImageCard = ({ src, index }: { src: string; index: number }) => (
-    <div className="flex-shrink-0 w-64 sm:w-80 h-56 sm:h-64 bg-white rounded-lg shadow-md overflow-hidden transform hover:scale-105 transition-transform duration-300 border border-slate-200 group relative">
+    <div className="flex-shrink-0 w-48 sm:w-64 md:w-72 lg:w-80 aspect-[4/3] bg-white rounded-lg shadow-md overflow-hidden transform hover:scale-105 transition-transform duration-300 border border-slate-200 group relative">
       <img
         src={src}
         alt={`Gallery image ${index + 1}`}
@@ -74,25 +71,25 @@ const Gallery: React.FC = () => {
 
         .scroller {
           display: flex;
-          width: 200%; /* twice the content width */
+          width: 200%;
         }
 
         .animate-left {
-          animation: scroll-left 60s linear infinite;
+          animation: scroll-left 35s linear infinite;
         }
 
         .animate-right {
-          animation: scroll-right 60s linear infinite;
+          animation: scroll-right 35s linear infinite;
         }
 
         .scroller > div {
           display: flex;
-          gap: 1.5rem;
+          gap: 1rem;
         }
       `}</style>
 
       <section className="py-16 sm:py-20 bg-slate-100 font-roboto-mono overflow-hidden">
-        <div className="container mx-auto">
+        <div className="container mx-auto px-4">
           <SectionTitle>
             Gallery <span className="text-blue-600">Moments</span>
           </SectionTitle>
@@ -134,8 +131,6 @@ const Gallery: React.FC = () => {
               </div>
             </div>
           </div>
-
-          
         </div>
       </section>
     </>
