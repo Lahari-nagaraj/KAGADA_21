@@ -1,18 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
+import { CheckCircle } from "lucide-react";
 
 const LoadingScreen: React.FC = () => {
   const [count, setCount] = useState(3);
-  const [showText, setShowText] = useState(false);
+  const [isComplete, setIsComplete] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowText(true);
-    }, 500);
-
     const countdownTimer = setInterval(() => {
       setCount((prev) => {
         if (prev <= 1) {
           clearInterval(countdownTimer);
+          setIsComplete(true);
           return 0;
         }
         return prev - 1;
@@ -20,52 +18,79 @@ const LoadingScreen: React.FC = () => {
     }, 1000);
 
     return () => {
-      clearTimeout(timer);
       clearInterval(countdownTimer);
     };
   }, []);
 
   return (
-    <div className="fixed inset-0 bg-gradient-to-br from-red-600 via-red-700 to-red-800 flex items-center justify-center z-50 overflow-hidden">
-      {/* Animated background elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-yellow-400 rounded-full opacity-10 animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-white rounded-full opacity-5 animate-bounce"></div>
-        <div className="absolute top-1/2 left-1/2 w-32 h-32 bg-yellow-500 rounded-full opacity-20 transform -translate-x-1/2 -translate-y-1/2 animate-spin"></div>
-      </div>
+    <>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&family=Roboto+Mono:wght@400;700&display=swap');
+        .font-rajdhani { font-family: 'Rajdhani', sans-serif; }
+        .font-roboto-mono { font-family: 'Roboto Mono', monospace; }
+        
+        @keyframes count-pulse {
+          0%, 100% { transform: scale(1); opacity: 1; }
+          50% { transform: scale(1.1); opacity: 0.8; }
+        }
+        .animate-count-pulse {
+          animation: count-pulse 1s ease-in-out;
+        }
 
-      <div className="text-center z-10">
-        <div className={`transform transition-all duration-1000 ${showText ? 'opacity-100 scale-100' : 'opacity-0 scale-75'}`}>
-          <h1 className="text-6xl md:text-8xl font-bold text-white mb-8 tracking-wider">
-            KAGADA
-            <span className="text-yellow-400 ml-4">25</span>
+        @keyframes loading-bar-fill {
+          from { width: 0%; }
+          to { width: 100%; }
+        }
+        .animate-loading-bar-fill {
+          animation: loading-bar-fill 3s linear forwards;
+        }
+
+        @keyframes fade-in-scale-up {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .animate-fade-in-scale-up {
+            animation: fade-in-scale-up 0.5s ease-out forwards;
+        }
+      `}</style>
+
+      <div className="fixed inset-0 bg-slate-100 flex items-center justify-center z-50 overflow-hidden font-roboto-mono">
+        {/* Animated blueprint grid background */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.1)_1px,transparent_1px)] bg-[length:2rem_2rem] opacity-50 animate-pulse"></div>
+
+        <div className="text-center z-10 animate-fade-in-up">
+          <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold font-rajdhani text-slate-900 mb-4 tracking-wider">
+            KAGADA <span className="text-blue-600">2025</span>
           </h1>
-          
-          <div className="text-white text-xl md:text-2xl mb-12">
-            <span className="inline-block animate-pulse">Loading in</span>
-          </div>
 
-          <div className="relative">
-            <div className={`text-8xl md:text-9xl font-bold text-yellow-400 transform transition-all duration-500 ${
-              count > 0 ? 'scale-150 rotate-12' : 'scale-100 rotate-0 opacity-0'
-            }`}>
-              {count > 0 ? count : '🚀'}
-            </div>
-            
-            {count === 0 && (
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-6xl animate-bounce">🎉</div>
-              </div>
+          <p className="text-slate-600 text-lg sm:text-xl mb-12">
+            Initializing Conference Interface...
+          </p>
+
+          <div className="relative h-24 w-24 mx-auto flex items-center justify-center">
+            {!isComplete ? (
+              <span
+                key={count}
+                className="text-7xl sm:text-8xl font-bold font-rajdhani text-blue-600 animate-count-pulse"
+              >
+                {count}
+              </span>
+            ) : (
+              <CheckCircle
+                className="text-blue-600 animate-fade-in-scale-up"
+                size={80}
+                strokeWidth={1.5}
+              />
             )}
           </div>
         </div>
-      </div>
 
-      {/* Loading bar */}
-      <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 w-64 h-1 bg-white bg-opacity-30 rounded-full overflow-hidden">
-        <div className="h-full bg-gradient-to-r from-yellow-400 to-red-300 rounded-full animate-pulse"></div>
+        {/* Loading bar */}
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 w-64 h-1.5 bg-blue-600/20 rounded-full overflow-hidden">
+          <div className="h-full bg-blue-600 rounded-full animate-loading-bar-fill"></div>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

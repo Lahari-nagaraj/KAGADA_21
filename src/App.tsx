@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from "react";
 import LoadingScreen from "./components/LoadingScreen";
 import Hero from "./components/Hero";
-import AboutUVCE from "./components/AboutUVCE";
-import AboutIEEE from "./components/AboutIEEE";
-import AboutKagada from "./components/AboutKagada";
 import ExploreTracks from "./components/ExploreTracks";
 import PreviousWinners from "./components/PreviousWinners";
 import Gallery from "./components/Gallery";
@@ -13,6 +10,7 @@ import ContactMap from "./components/ContactMap";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import About from "./components/About";
+import Header from "./components/Header";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -31,11 +29,12 @@ function App() {
 
   return (
     <div className="min-h-screen bg-white">
+      <Header />
       <Hero />
       <About />
-      <AboutUVCE />
+      {/* <AboutUVCE />
       <AboutIEEE />
-      <AboutKagada />
+      <AboutKagada /> */}
       <ExploreTracks />
       <PreviousWinners />
       <Gallery />
