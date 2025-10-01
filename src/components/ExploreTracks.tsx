@@ -74,7 +74,8 @@ export default function ExploreTracksCarousel() {
 
   return (
     <>
-      <style>{`
+      <section id="tracks">
+        <style>{`
         .carousel-wrap { perspective: 1200px; overflow: hidden; }
         .card-viewport { display: flex; align-items: center; justify-content: center; position: relative; height: 520px; width: 100%; }
         .track-card { width: min(680px, 90vw); height: 460px; transition: all 600ms ease; }
@@ -98,59 +99,64 @@ export default function ExploreTracksCarousel() {
         }
       `}</style>
 
-      <section className="py-16 sm:py-20 bg-slate-100">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center mb-10">
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-slate-900 tracking-wide">
-              Explore <span className="text-blue-600">Event Tracks</span>
-            </h2>
-            <div className="w-24 h-1 bg-blue-600/70 mx-auto mt-4 rounded-full"></div>
-          </div>
-
-          <div className={`p-4 sm:p-6 ${cardBase} carousel-wrap`}>
-            <div className="card-viewport">
-              {/* Left card */}
-              <div
-                className={`card-side card-left track-card ${cardBase}`}
-                style={{ zIndex: 10 }}
-                onClick={() => setActive(leftIndex)}
-              >
-                <CardContent track={tracks[leftIndex]} variant="side" />
-              </div>
-
-              {/* Center card */}
-              <div
-                className={`track-card card-center ${cardBase}`}
-                style={{ zIndex: 40 }}
-                onClick={() => setActive(centerIndex)}
-              >
-                <CardContent track={tracks[centerIndex]} variant="center" setPause={setPause} />
-              </div>
-
-              {/* Right card */}
-              <div
-                className={`card-side card-right track-card ${cardBase}`}
-                style={{ zIndex: 10 }}
-                onClick={() => setActive(rightIndex)}
-              >
-                <CardContent track={tracks[rightIndex]} variant="side" />
-              </div>
+        <section className="py-16 sm:py-20 bg-slate-100">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto text-center mb-10">
+              <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-slate-900 tracking-wide">
+                Explore <span className="text-blue-600">Event Tracks</span>
+              </h2>
+              <div className="w-24 h-1 bg-blue-600/70 mx-auto mt-4 rounded-full"></div>
             </div>
 
-            {/* Dots */}
-            <div className="flex justify-center gap-3 mt-6">
-              {tracks.map((t, i) => (
-                <button
-                  key={t.id}
-                  className={`w-3 h-3 rounded-full transition-all ${
-                    i === active ? "bg-blue-600 scale-110" : "bg-slate-300"
-                  }`}
-                  onClick={() => setActive(i)}
-                />
-              ))}
+            <div className={`p-4 sm:p-6 ${cardBase} carousel-wrap`}>
+              <div className="card-viewport">
+                {/* Left card */}
+                <div
+                  className={`card-side card-left track-card ${cardBase}`}
+                  style={{ zIndex: 10 }}
+                  onClick={() => setActive(leftIndex)}
+                >
+                  <CardContent track={tracks[leftIndex]} variant="side" />
+                </div>
+
+                {/* Center card */}
+                <div
+                  className={`track-card card-center ${cardBase}`}
+                  style={{ zIndex: 40 }}
+                  onClick={() => setActive(centerIndex)}
+                >
+                  <CardContent
+                    track={tracks[centerIndex]}
+                    variant="center"
+                    setPause={setPause}
+                  />
+                </div>
+
+                {/* Right card */}
+                <div
+                  className={`card-side card-right track-card ${cardBase}`}
+                  style={{ zIndex: 10 }}
+                  onClick={() => setActive(rightIndex)}
+                >
+                  <CardContent track={tracks[rightIndex]} variant="side" />
+                </div>
+              </div>
+
+              {/* Dots */}
+              <div className="flex justify-center gap-3 mt-6">
+                {tracks.map((t, i) => (
+                  <button
+                    key={t.id}
+                    className={`w-3 h-3 rounded-full transition-all ${
+                      i === active ? "bg-blue-600 scale-110" : "bg-slate-300"
+                    }`}
+                    onClick={() => setActive(i)}
+                  />
+                ))}
+              </div>
             </div>
           </div>
-        </div>
+        </section>
       </section>
     </>
   );

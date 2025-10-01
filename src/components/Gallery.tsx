@@ -57,7 +57,8 @@ const Gallery: React.FC = () => {
 
   return (
     <>
-      <style>{`
+      <section id="gallery">
+        <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&family=Roboto+Mono:wght@400;700&display=swap');
         .font-rajdhani { font-family: 'Rajdhani', sans-serif; }
         .font-roboto-mono { font-family: 'Roboto Mono', monospace; }
@@ -91,52 +92,67 @@ const Gallery: React.FC = () => {
         }
       `}</style>
 
-      <section className="py-16 sm:py-20 bg-slate-100 font-roboto-mono overflow-hidden">
-        <div className="container mx-auto">
-          <SectionTitle>
-            Gallery <span className="text-blue-600">Moments</span>
-          </SectionTitle>
-          <p className="text-center text-slate-600 max-w-3xl mx-auto leading-relaxed -mt-8 mb-16 px-4">
-            Capturing the essence of innovation, creativity, and celebration
-            from past KAGADA events.
-          </p>
+        <section className="py-16 sm:py-20 bg-slate-100 font-roboto-mono overflow-hidden">
+          <div className="container mx-auto">
+            <SectionTitle>
+              Gallery <span className="text-blue-600">Moments</span>
+            </SectionTitle>
+            <p className="text-center text-slate-600 max-w-3xl mx-auto leading-relaxed -mt-8 mb-16 px-4">
+              Capturing the essence of innovation, creativity, and celebration
+              from past KAGADA events.
+            </p>
 
-          <div className="space-y-6">
-            {/* Row 1 - scroll right */}
-            <div className="w-full overflow-hidden">
-              <div className="scroller animate-right">
-                <div>
-                  {imagesRow1.map((image, index) => (
-                    <ImageCard src={image} index={index} key={`row1a-${index}`} />
-                  ))}
-                </div>
-                <div>
-                  {imagesRow1.map((image, index) => (
-                    <ImageCard src={image} index={index} key={`row1b-${index}`} />
-                  ))}
+            <div className="space-y-6">
+              {/* Row 1 - scroll right */}
+              <div className="w-full overflow-hidden">
+                <div className="scroller animate-right">
+                  <div>
+                    {imagesRow1.map((image, index) => (
+                      <ImageCard
+                        src={image}
+                        index={index}
+                        key={`row1a-${index}`}
+                      />
+                    ))}
+                  </div>
+                  <div>
+                    {imagesRow1.map((image, index) => (
+                      <ImageCard
+                        src={image}
+                        index={index}
+                        key={`row1b-${index}`}
+                      />
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
 
-            {/* Row 2 - scroll left */}
-            <div className="w-full overflow-hidden">
-              <div className="scroller animate-left">
-                <div>
-                  {imagesRow2.map((image, index) => (
-                    <ImageCard src={image} index={index} key={`row2a-${index}`} />
-                  ))}
-                </div>
-                <div>
-                  {imagesRow2.map((image, index) => (
-                    <ImageCard src={image} index={index} key={`row2b-${index}`} />
-                  ))}
+              {/* Row 2 - scroll left */}
+              <div className="w-full overflow-hidden">
+                <div className="scroller animate-left">
+                  <div>
+                    {imagesRow2.map((image, index) => (
+                      <ImageCard
+                        src={image}
+                        index={index}
+                        key={`row2a-${index}`}
+                      />
+                    ))}
+                  </div>
+                  <div>
+                    {imagesRow2.map((image, index) => (
+                      <ImageCard
+                        src={image}
+                        index={index}
+                        key={`row2b-${index}`}
+                      />
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-
-          
-        </div>
+        </section>
       </section>
     </>
   );
