@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Play, Download } from "lucide-react";
+import { Play } from "lucide-react";
 import video2024 from "../assets/videos/kagada2024.mp4";
 import video2023 from "../assets/videos/kagada2023.mp4";
 import img1 from "../assets/img1.png";
@@ -28,7 +28,7 @@ const AfterMovies: React.FC = () => {
   const videos = [
     {
       title: "KAGADA 2024",
-      thumbnail:img1,
+      thumbnail: img1,
       duration: "1:30",
       video: video2024,
       description:
@@ -36,8 +36,7 @@ const AfterMovies: React.FC = () => {
     },
     {
       title: "KAGADA 2023",
-      thumbnail:
-        img2,
+      thumbnail: img2,
       duration: "1:35",
       video: video2023,
       description:
@@ -62,7 +61,7 @@ const AfterMovies: React.FC = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <SectionTitle>
-              After <span className="text-blue-600">Movies</span>
+              KAGADA - <span className="text-blue-600">From the previous years!</span>
             </SectionTitle>
             <p className="text-center text-slate-600 max-w-3xl mx-auto leading-relaxed -mt-8 mb-16">
               Experience the magic of KAGADA through our cinematic after movies.
@@ -76,7 +75,10 @@ const AfterMovies: React.FC = () => {
                   className={`${cardStyle} group overflow-hidden transform hover:-translate-y-2 transition-transform duration-300`}
                 >
                   {/* Video Thumbnail */}
-                  <div className="relative overflow-hidden cursor-pointer">
+                  <div
+                    className="relative overflow-hidden cursor-pointer"
+                    onClick={() => setCurrentVideo(video.video)} // Open modal on click
+                  >
                     <img
                       src={video.thumbnail}
                       alt={video.title}
@@ -101,31 +103,10 @@ const AfterMovies: React.FC = () => {
                     <p className="text-slate-600 leading-relaxed mb-6 text-sm">
                       {video.description}
                     </p>
-                    <div className="flex flex-col sm:flex-row gap-4">
-                      {/* Watch Now */}
-                      <button
-                        onClick={() => setCurrentVideo(video.video)}
-                        className="bg-blue-600 text-white font-bold py-3 px-6 rounded-md text-base hover:bg-blue-500 transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2"
-                      >
-                        <Play size={16} /> Watch Here
-                      </button>
-
-                      {/* Download */}
-                      <a
-                        href={video.video}
-                        download={`${video.title}.mp4`}
-                        className="bg-blue-600 text-white font-bold py-3 px-6 rounded-md text-base hover:bg-blue-500 transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2"
-                      >
-                        <Download size={16} /> Download
-                      </a>
-                    </div>
                   </div>
                 </div>
               ))}
             </div>
-
-            {/* Subscribe Section */}
-            
           </div>
         </div>
 
