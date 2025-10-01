@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ChevronDown, ChevronUp, HelpCircle } from "lucide-react";
+import { ChevronDown, HelpCircle } from "lucide-react";
 
 // --- Reusable Blueprint Card Style ---
 const cardStyle = `bg-white/70 backdrop-blur-md border border-blue-600/20 shadow-lg rounded-lg
@@ -7,9 +7,7 @@ const cardStyle = `bg-white/70 backdrop-blur-md border border-blue-600/20 shadow
                    bg-[length:2rem_2rem]`;
 
 // --- Section Title Component ---
-const SectionTitle: React.FC<{ children: React.ReactNode }> = ({
-  children,
-}) => (
+const SectionTitle: React.FC<{ children: React.ReactNode }> = ({ children }) => (
   <div className="text-center mb-12 sm:mb-16">
     <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-blue-600/10 rounded-full mb-6">
       <HelpCircle className="text-blue-600" size={40} />
@@ -26,34 +24,39 @@ const FAQs: React.FC = () => {
 
   const faqs = [
     {
-      question: "What is KAGADA 2025?",
+      question: "What is KAGADA and when is it?",
       answer:
-        "KAGADA 2025 is a National Level Tech Fest organized by IEEE UVCE Student Branch. It's a premier platform for students across the country to showcase their technical skills, innovative projects, and research work through various competitions and presentations.",
+        "KAGADA is an Annual National Level Technical Student Conference conducted by IEEE UVCE. It will be held on 18th November, 2025.",
     },
     {
-      question: "When and where is KAGADA 2025 taking place?",
+      question: "What can I present in KAGADA?",
       answer:
-        "KAGADA 2025 is scheduled for November 8th, 2025, at University Visvesvaraya College of Engineering (UVCE), Bangalore. The event will span the entire day with multiple tracks running simultaneously.",
+        "KAGADA has 3 tracks in it viz., Paper Presentation, Poster Presentation and Project Presentation. You can choose any of these tracks.",
     },
     {
-      question: "Who can participate in KAGADA 2025?",
+      question: "Why should I participate in KAGADA 2025?",
       answer:
-        "KAGADA is open to all undergraduate and postgraduate students from engineering colleges across India. Students can participate individually or as teams, depending on the specific track requirements.",
+        "As KAGADA is a national level technical student conference, one gets a national level platform to exhibit their innovative ideas and thoughts. This also provides an opportunity to showcase their presentation skills.",
     },
     {
-      question: "What are the different tracks available?",
+      question: "What is the domain for presentation?",
       answer:
-        "KAGADA 2025 features five main tracks: Poster Presentation, Paper Presentation, Project Presentation, Ottige Kaliyona (technical games), and Food for Cause (social initiative). Each track has its own set of rules and evaluation criteria.",
+        "There is no specific domain for presentation but the sole purpose is to come up with ideas for the betterment of society.",
     },
     {
-      question: "How do I register for the event?",
+      question: "Where will KAGADA 2025 take place?",
       answer:
-        "Registration will open soon through our official website. Participants will need to select their preferred tracks, submit required documents, and pay the registration fee. Early bird discounts will be available.",
+        "KAGADA 2025 will take place at UVCE, KR Circle.",
     },
     {
-      question: "Are there any accommodation facilities?",
+      question: "Can one participate in more than one track?",
       answer:
-        "Yes, we provide accommodation assistance for outstation participants. Limited on-campus accommodation will be available on a first-come, first-served basis. We also have tie-ups with nearby hostels and hotels.",
+        "Yes, participants can take part in more than one track.",
+    },
+    {
+      question: "What all events are there in KAGADA 2025?",
+      answer:
+        `KAGADA consists of two category events.\n\nThe Presentation tracks:\n• Paper Presentation\n• Poster Presentation\n• Project Presentation\n\nHumanitarian activities:\n• Ottige Kaliyona\n• Food for Cause`,
     },
   ];
 
@@ -115,7 +118,7 @@ const FAQs: React.FC = () => {
                   >
                     <div className="overflow-hidden">
                       <div className="px-4 sm:px-5 pb-5">
-                        <p className="text-slate-600 leading-relaxed text-sm sm:text-base border-t border-blue-600/20 pt-4">
+                        <p className="text-slate-600 leading-relaxed text-sm sm:text-base border-t border-blue-600/20 pt-4 whitespace-pre-line">
                           {faq.answer}
                         </p>
                       </div>
