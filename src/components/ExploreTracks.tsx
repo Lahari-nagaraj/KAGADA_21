@@ -16,35 +16,35 @@ export default function ExploreTracksCarousel() {
         id: "poster",
         title: "Poster Presentation",
         description:
-          "The poster presentation allows participants to showcase innovative solutions to real-world issues through technical posters. They can choose their preferred domain, and presentations will be held in a hybrid format. Participants also have the flexibility to select their mode of presentation.\n\nRegistration Fee: ₹150 per team",
+          "The poster presentation allows participants to showcase innovative solutions to real-world issues through technical posters. They can choose their preferred domain, and presentations will be held in a hybrid format.\n\nRegistration Fee: ₹150 per team",
         img: "/poster.png",
       },
       {
         id: "paper",
         title: "Paper Presentation",
         description:
-          "The paper presentation competition allows participants to showcase their research in their chosen fields, providing a platform for sharing innovative ideas that advance society. Open to both undergraduates and postgraduates, the competition will be conducted in a hybrid format.\n\nRegistration Fee: ₹200 per team",
+          "The paper presentation competition allows participants to showcase their research in their chosen fields, providing a platform for sharing innovative ideas that advance society.\n\nRegistration Fee: ₹200 per team",
         img: "/poster.png",
       },
       {
         id: "project",
         title: "Project Presentation",
         description:
-          "The project presentation allows students to unleash their creativity and showcase their inventions through working model demonstrations. This platform fosters collaboration as they present innovative ideas across diverse domains and engage with peers.\n\nRegistration Fee: ₹180 per team",
+          "The project presentation allows students to unleash their creativity and showcase their inventions through working model demonstrations.\n\nRegistration Fee: ₹180 per team",
         img: "/poster.png",
       },
       {
         id: "ottige",
         title: "Ottige Kaliyona",
         description:
-          "Ottige Kaliyona conducted by IEEE UVCE WIE during KAGADA as an initiative to contribute to the upliftment of society, inviting students from a government school for technical education and fun activities.",
+          "Ottige Kaliyona conducted by IEEE UVCE WIE during KAGADA as an initiative to contribute to the upliftment of society.",
         img: "/poster.png",
       },
       {
         id: "food",
         title: "Food for Cause",
         description:
-          "The event conducted by ECE students of UVCE where food stalls serve delicious foods and the profits collected from the same will be donated to an NGO.",
+          "The event conducted by ECE students of UVCE where food stalls serve delicious foods and profits are donated to an NGO.",
         img: "/poster.png",
       },
     ],
@@ -75,18 +75,23 @@ export default function ExploreTracksCarousel() {
   return (
     <>
       <style>{`
-        .carousel-wrap { perspective: 1200px; }
-        .card-viewport { display: grid; place-items: center; position: relative; height: 520px; }
-        .track-card { width: min(720px, 92%); height: 460px; transition: all 600ms ease; }
-        .card-side { position: absolute; top: 30px; width: 45%; max-width: 340px; height: 360px; opacity: 0.6; filter: blur(3px); transform: scale(0.9); }
-        .card-left { left: 0; transform: translateX(-55%) scale(0.9); }
-        .card-right { right: 0; transform: translateX(55%) scale(0.9); }
+        .carousel-wrap { perspective: 1200px; overflow: hidden; }
+        .card-viewport { display: flex; align-items: center; justify-content: center; position: relative; height: 520px; width: 100%; }
+        .track-card { width: min(680px, 90vw); height: 460px; transition: all 600ms ease; }
+        .card-side { position: absolute; top: 30px; width: 42%; max-width: 300px; height: 340px; opacity: 0.6; filter: blur(3px); transform: scale(0.9); }
+        .card-left { left: 5%; transform: translateX(-20%) scale(0.9); }
+        .card-right { right: 5%; transform: translateX(20%) scale(0.9); }
         .card-center { z-index: 30; transform: scale(1.05); box-shadow: 0 0 20px rgba(59,130,246,0.5); }
         .card-media { height: 55%; display: flex; align-items: center; justify-content: center; overflow: hidden; border-top-left-radius: 0.75rem; border-top-right-radius: 0.75rem; background: white; }
         .card-img { width: 100%; height: 100%; object-fit: contain; }
         .card-body { padding: 1rem 1.25rem; }
         .track-card:hover { box-shadow: 0 0 25px rgba(59,130,246,0.7); transform: scale(1.07); }
-        @media (max-width: 800px) {
+        
+        @media (max-width: 1024px) {
+          .card-side { width: 40%; max-width: 250px; }
+        }
+
+        @media (max-width: 768px) {
           .card-side { display: none; }
           .card-viewport { height: 460px; }
           .track-card { width: 92%; height: 440px; }
