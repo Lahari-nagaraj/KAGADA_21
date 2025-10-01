@@ -1,13 +1,15 @@
-import React from "react";
-import { Play, Film } from "lucide-react";
+import React, { useState } from "react";
+import { Play, Download } from "lucide-react";
+import video2024 from "../assets/videos/kagada2024.mp4";
+import video2023 from "../assets/videos/kagada2023.mp4";
+import img1 from "../assets/img1.png";
+import img2 from "../assets/img2.png";
 
 // --- Section Title Component ---
-const SectionTitle: React.FC<{ children: React.ReactNode }> = ({
-  children,
-}) => (
+const SectionTitle: React.FC<{ children: React.ReactNode }> = ({ children }) => (
   <div className="text-center mb-12 sm:mb-16">
     <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-blue-600/10 rounded-full mb-6">
-      <Film className="text-blue-600" size={40} />
+      <Play className="text-blue-600" size={40} />
     </div>
     <h2 className="font-rajdhani text-4xl sm:text-5xl md:text-6xl font-bold text-slate-900 tracking-wider">
       {children}
@@ -17,37 +19,44 @@ const SectionTitle: React.FC<{ children: React.ReactNode }> = ({
 );
 
 // --- Reusable Blueprint Card Style ---
-const cardStyle = `bg-white/70 backdrop-blur-md border border-blue-600/20 shadow-lg rounded-lg
-                   bg-[linear-gradient(rgba(59,130,246,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.05)_1px,transparent_1px)] 
-                   bg-[length:2rem_2rem]`;
+const cardStyle =
+  "bg-white/70 backdrop-blur-md border border-blue-600/20 shadow-lg rounded-lg bg-[linear-gradient(rgba(59,130,246,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.05)_1px,transparent_1px)] bg-[length:2rem_2rem]";
 
 const AfterMovies: React.FC = () => {
+  const [currentVideo, setCurrentVideo] = useState<string | null>(null);
+
   const videos = [
     {
-      title: "KAGADA 2024 - Official After Movie",
-      thumbnail:
-        "https://images.pexels.com/photos/3861972/pexels-photo-3861972.jpeg?auto=compress&cs=tinysrgb&w=800",
-      duration: "5:32",
+      title: "KAGADA 2024",
+      thumbnail:img1,
+      duration: "1:30",
+      video: video2024,
       description:
         "Relive the excitement and energy of KAGADA 2024 with highlights from all events, competitions, and celebrations.",
     },
     {
-      title: "Innovation Showcase - Best Projects",
+      title: "KAGADA 2023",
       thumbnail:
-        "https://images.pexels.com/photos/3863793/pexels-photo-3863793.jpeg?auto=compress&cs=tinysrgb&w=800",
-      duration: "8:15",
+        img2,
+      duration: "1:35",
+      video: video2023,
       description:
-        "A compilation of the most innovative projects and presentations that made KAGADA 2024 unforgettable.",
+        "Relive the excitement and energy of KAGADA 2023 with highlights from all events, competitions, and celebrations.",
     },
   ];
 
+  // Function to close modal
+  const closeModal = () => setCurrentVideo(null);
+
   return (
     <>
-      <style>{`
+      <style>
+        {`
         @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&family=Roboto+Mono:wght@400;700&display=swap');
         .font-rajdhani { font-family: 'Rajdhani', sans-serif; }
         .font-roboto-mono { font-family: 'Roboto Mono', monospace; }
-      `}</style>
+      `}
+      </style>
 
       <section className="py-16 sm:py-20 bg-slate-100 font-roboto-mono">
         <div className="container mx-auto px-4">
@@ -73,19 +82,12 @@ const AfterMovies: React.FC = () => {
                       alt={video.title}
                       className="w-full h-56 sm:h-64 object-cover group-hover:scale-110 transition-transform duration-500"
                     />
-
                     <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-300"></div>
-
                     <div className="absolute inset-0 flex items-center justify-center">
                       <div className="w-16 h-16 sm:w-20 sm:h-20 bg-blue-600/80 rounded-full flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                        <Play
-                          className="text-white ml-1"
-                          size={32}
-                          fill="white"
-                        />
+                        <Play className="text-white ml-1" size={32} fill="white" />
                       </div>
                     </div>
-
                     <div className="absolute bottom-4 right-4 bg-slate-900/70 backdrop-blur-sm text-white px-3 py-1 rounded-full text-xs font-semibold">
                       {video.duration}
                     </div>
@@ -99,15 +101,23 @@ const AfterMovies: React.FC = () => {
                     <p className="text-slate-600 leading-relaxed mb-6 text-sm">
                       {video.description}
                     </p>
-
                     <div className="flex flex-col sm:flex-row gap-4">
-                      <button className="bg-blue-600 text-white font-bold py-3 px-6 rounded-md text-base hover:bg-blue-500 transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2">
-                        <Play size={16} />
-                        Watch Now
+                      {/* Watch Now */}
+                      <button
+                        onClick={() => setCurrentVideo(video.video)}
+                        className="bg-blue-600 text-white font-bold py-3 px-6 rounded-md text-base hover:bg-blue-500 transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2"
+                      >
+                        <Play size={16} /> Watch Here
                       </button>
-                      <button className="bg-blue-600/10 text-blue-800 font-bold py-3 px-6 rounded-md text-base hover:bg-blue-600/20 transition-all duration-300 transform hover:scale-105 border border-blue-600/30">
-                        Share
-                      </button>
+
+                      {/* Download */}
+                      <a
+                        href={video.video}
+                        download={`${video.title}.mp4`}
+                        className="bg-blue-600 text-white font-bold py-3 px-6 rounded-md text-base hover:bg-blue-500 transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2"
+                      >
+                        <Download size={16} /> Download
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -120,8 +130,7 @@ const AfterMovies: React.FC = () => {
                 Don't Miss Future Updates!
               </h3>
               <p className="text-slate-600 mb-6 max-w-2xl mx-auto">
-                Subscribe to our channel for exclusive content and early access
-                to KAGADA 2025 announcements.
+                Subscribe to our channel for exclusive content and early access to KAGADA 2025 announcements.
               </p>
               <button className="bg-blue-600 text-white font-bold py-3 px-8 sm:px-10 rounded-md text-base sm:text-lg hover:bg-blue-500 transition-all duration-300 transform hover:scale-105 shadow-lg shadow-blue-500/20">
                 Subscribe to Channel
@@ -129,6 +138,27 @@ const AfterMovies: React.FC = () => {
             </div>
           </div>
         </div>
+
+        {/* Video Modal */}
+        {currentVideo && (
+          <div
+            className="fixed inset-0 bg-black/70 flex items-center justify-center z-50"
+            onClick={closeModal} // Close when clicking outside
+          >
+            <div
+              className="bg-white rounded-lg overflow-hidden max-w-3xl w-full relative"
+              onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside video
+            >
+              <button
+                className="absolute top-2 right-2 text-black font-bold text-xl"
+                onClick={closeModal}
+              >
+                ✕
+              </button>
+              <video src={currentVideo} controls autoPlay className="w-full h-auto" />
+            </div>
+          </div>
+        )}
       </section>
     </>
   );
