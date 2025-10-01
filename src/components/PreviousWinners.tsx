@@ -2,14 +2,13 @@ import React from "react";
 import { Trophy, Star, Award } from "lucide-react";
 
 // --- Reusable Blueprint Card Style ---
-const cardStyle = `bg-white/70 backdrop-blur-md border border-blue-600/20 shadow-lg rounded-lg
+const cardStyle = `relative bg-white/70 backdrop-blur-md border border-blue-600/20 shadow-lg rounded-lg
+                   overflow-hidden 
                    bg-[linear-gradient(rgba(59,130,246,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.05)_1px,transparent_1px)] 
                    bg-[length:2rem_2rem]`;
 
 // --- Section Title Component ---
-const SectionTitle: React.FC<{ children: React.ReactNode }> = ({
-  children,
-}) => (
+const SectionTitle: React.FC<{ children: React.ReactNode }> = ({ children }) => (
   <div className="text-center mb-12 sm:mb-16">
     <h2 className="font-rajdhani text-4xl sm:text-5xl md:text-6xl font-bold text-slate-900 tracking-wider">
       {children}
@@ -22,34 +21,27 @@ const SectionTitle: React.FC<{ children: React.ReactNode }> = ({
 const PreviousWinners: React.FC = () => {
   const winners = [
     {
-      year: "2024",
-      title: "Innovation Excellence",
+      title: "Poster Presentation",
       winner: "Team Alpha",
-      college: "IIT Bangalore",
-      project: "AI-Powered Healthcare Assistant",
       icon: Trophy,
+      bg: "/poster.png", // background image path
     },
     {
-      year: "2023",
-      title: "Technical Mastery",
+      title: "Paper Presentation",
       winner: "Team Beta",
-      college: "NIT Karnataka",
-      project: "Smart City Infrastructure",
       icon: Star,
+      bg: "/poster.png",
     },
     {
-      year: "2022",
-      title: "Creative Solution",
+      title: "Project Presentation",
       winner: "Team Gamma",
-      college: "RVCE Bangalore",
-      project: "Sustainable Energy Management",
       icon: Award,
+      bg: "/poster.png",
     },
   ];
 
   return (
     <>
-      {/* The Google Font imports would be in your main index.html or a root App component */}
       <style>{`
           @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&family=Roboto+Mono:wght@400;700&display=swap');
           .font-rajdhani { font-family: 'Rajdhani', sans-serif; }
@@ -75,42 +67,36 @@ const PreviousWinners: React.FC = () => {
                   key={index}
                   className={`${cardStyle} group p-8 flex flex-col text-left transform hover:-translate-y-2 transition-transform duration-300 hover:border-blue-600/30`}
                 >
-                  <div className="flex items-start justify-between mb-4">
-                    <div>
-                      <h3 className="font-rajdhani text-2xl font-bold text-slate-800">
-                        {winner.title}
-                      </h3>
-                      <p className="font-semibold text-blue-700">
-                        {winner.year}
-                      </p>
-                    </div>
-                    <div className="bg-blue-600/10 p-3 rounded-lg">
-                      <winner.icon className="text-blue-600" size={28} />
-                    </div>
-                  </div>
+                  {/* Background Image with 50% opacity */}
+                  <div
+                    className="absolute inset-0 bg-cover bg-center opacity-50"
+                    style={{ backgroundImage: `url(${winner.bg})` }}
+                  ></div>
 
-                  <div className="flex-grow space-y-4">
-                    <div className="text-left">
+                  {/* Overlay Content */}
+                  <div className="relative z-10">
+                    <div className="flex items-start justify-between mb-6">
+                      <div>
+                        <h3 className="font-rajdhani text-2xl font-bold text-slate-800">
+                          {winner.title}
+                        </h3>
+                      </div>
+                      <div className="bg-blue-600/10 p-3 rounded-lg">
+                        <winner.icon className="text-blue-600" size={28} />
+                      </div>
+                    </div>
+
+                    <div className="flex-grow">
                       <p className="text-lg font-bold text-slate-700">
                         {winner.winner}
                       </p>
-                      <p className="text-sm text-slate-500">{winner.college}</p>
                     </div>
 
-                    <div className="bg-black/5 p-4 rounded-md border border-blue-600/10">
-                      <p className="text-xs text-slate-500 mb-1">
-                        Winning Project
-                      </p>
-                      <p className="font-semibold text-slate-800 leading-tight">
-                        {winner.project}
-                      </p>
+                    <div className="mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <button className="w-full bg-slate-800 text-white px-6 py-2 rounded-md font-semibold hover:bg-slate-700 transition-colors">
+                        View Details
+                      </button>
                     </div>
-                  </div>
-
-                  <div className="mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <button className="w-full bg-slate-800 text-white px-6 py-2 rounded-md font-semibold hover:bg-slate-700 transition-colors">
-                      View Details
-                    </button>
                   </div>
                 </div>
               ))}
@@ -118,16 +104,17 @@ const PreviousWinners: React.FC = () => {
 
             {/* Call to Action */}
             <div className={`${cardStyle} text-center mt-16 p-8 sm:p-12`}>
-              <h3 className="font-rajdhani text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
+              <h3 className="font-rajdhani text-3xl sm:text-4xl font-bold text-slate-900 mb-4 relative z-10">
                 Ready to Join the Hall of Fame?
               </h3>
-              <p className="text-slate-600 mb-6 max-w-2xl mx-auto">
+              <p className="text-slate-600 mb-6 max-w-2xl mx-auto relative z-10">
                 KAGADA 2025 is your opportunity to showcase your innovations and
                 potentially become our next champion!
               </p>
-              <button className="bg-blue-600 text-white font-bold py-3 px-8 sm:px-10 rounded-md text-base sm:text-lg hover:bg-blue-500 transition-all duration-300 transform hover:scale-105 shadow-lg shadow-blue-500/20">
-                Start Your Journey
-              </button>
+             <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-blue-600 tracking-wide text-center relative z-10">
+  REGISTER SOON!!
+</h1>
+
             </div>
           </div>
         </div>
