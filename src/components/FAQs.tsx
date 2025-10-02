@@ -129,7 +129,7 @@ const FAQs: React.FC = () => {
             </div>
 
             {/* Contact Support */}
-            <div className={`${cardStyle} mt-16 text-center p-8 sm:p-12`}>
+            {/* <div className={`${cardStyle} mt-16 text-center p-8 sm:p-12`}>
               <h3 className="font-rajdhani text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
                 Still Have Questions?
               </h3>
@@ -145,7 +145,7 @@ const FAQs: React.FC = () => {
                   Email Us
                 </button>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
