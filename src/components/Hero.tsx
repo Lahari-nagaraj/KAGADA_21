@@ -230,7 +230,7 @@ const App = () => {
             alt="UVCE College Campus"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-white/40 backdrop-grayscale-[0.5]"></div>
+          {/* <div className="absolute inset-0 bg-white/40 backdrop-grayscale-[0.5]"></div> */}
         </div>
 
         <div className="absolute inset-0 pointer-events-none z-10 opacity-25">
