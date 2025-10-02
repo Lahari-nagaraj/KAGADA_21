@@ -127,25 +127,6 @@ const FAQs: React.FC = () => {
                 </div>
               ))}
             </div>
-
-            {/* Contact Support */}
-            {/* <div className={`${cardStyle} mt-16 text-center p-8 sm:p-12`}>
-              <h3 className="font-rajdhani text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
-                Still Have Questions?
-              </h3>
-              <p className="text-slate-600 mb-6 max-w-2xl mx-auto">
-                Our team is here to help! Reach out to us for any additional
-                questions or support.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="bg-slate-800 text-white font-bold py-3 px-8 rounded-md text-base hover:bg-slate-700 transition-all duration-300 transform hover:scale-105">
-                  Contact Support
-                </button>
-                <button className="bg-blue-600/10 text-blue-800 font-bold py-3 px-8 rounded-md text-base hover:bg-blue-600/20 transition-all duration-300 transform hover:scale-105 border border-blue-600/30">
-                  Email Us
-                </button>
-              </div>
-            </div> */}
           </div>
         </div>
       </section>
