@@ -53,7 +53,7 @@ const AboutPage = () => {
                   </div>
                   <div className="space-y-6">
                     <img
-                      src="https://images.pexels.com/photos/256490/pexels-photo-256490.jpeg?auto=compress&cs=tinysrgb&w=800"
+                      src="https://res.cloudinary.com/dr3ypljez/image/upload/v1759395273/clg_oacyq7.jpg"
                       alt="Students in a library"
                       className="w-full h-64 object-cover rounded-lg shadow-md"
                     />

@@ -17,35 +17,35 @@ export default function ExploreTracksCarousel() {
         title: "Poster Presentation",
         description:
           "The poster presentation allows participants to showcase innovative solutions to real-world issues through technical posters. They can choose their preferred domain, and presentations will be held in a hybrid format.\n\nRegistration Fee: ₹150 per team",
-        img: "/poster.png",
+        img: "https://res.cloudinary.com/dr3ypljez/image/upload/v1759396074/Screenshot_2025-10-02_143440_yoo4lb.png",
       },
       {
         id: "paper",
         title: "Paper Presentation",
         description:
           "The paper presentation competition allows participants to showcase their research in their chosen fields, providing a platform for sharing innovative ideas that advance society.\n\nRegistration Fee: ₹200 per team",
-        img: "/poster.png",
+        img: "https://res.cloudinary.com/dr3ypljez/image/upload/v1759396194/6950be6b-5651-43e2-8a7e-cade88d16a4d_wize9x.jpg",
       },
       {
         id: "project",
         title: "Project Presentation",
         description:
           "The project presentation allows students to unleash their creativity and showcase their inventions through working model demonstrations.\n\nRegistration Fee: ₹180 per team",
-        img: "/poster.png",
+        img: "https://res.cloudinary.com/dr3ypljez/image/upload/v1759396266/20241026_124756_xi3yqo.jpg",
       },
       {
         id: "ottige",
         title: "Ottige Kaliyona",
         description:
           "Ottige Kaliyona conducted by IEEE UVCE WIE during KAGADA as an initiative to contribute to the upliftment of society.",
-        img: "/poster.png",
+        img: "https://res.cloudinary.com/dr3ypljez/image/upload/v1759396336/_storage_emulated_0_DCIM_Camera_IMG_20241026_105853_a49rdk.jpg",
       },
       {
         id: "food",
         title: "Food for Cause",
         description:
           "The event conducted by ECE students of UVCE where food stalls serve delicious foods and profits are donated to an NGO.",
-        img: "/poster.png",
+        img: "https://res.cloudinary.com/dr3ypljez/image/upload/v1759396128/Screenshot_2025-10-02_143521_i6bymk.png",
       },
     ],
     []
