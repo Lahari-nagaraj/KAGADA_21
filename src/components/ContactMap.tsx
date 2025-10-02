@@ -341,7 +341,7 @@ const ContactMap: React.FC = () => {
   const contacts = [
     {
       name: "Mohith Monnappa T A",
-      designation: "Chair, IEEE UVCE",
+      designation: "Chairperson, IEEE UVCE",
       phone: "+91 63609 65351",
       phoneLink: "tel:+916360965351",
       email: "mohithmonnappa.ta@ieee.org",
@@ -349,7 +349,7 @@ const ContactMap: React.FC = () => {
     },
     {
       name: "Bharath P Nambiar",
-      designation: "Vice Chair, IEEE UVCE",
+      designation: "Vice Chairperson, IEEE UVCE",
       phone: "+91 91089 40867",
       phoneLink: "tel:+919108940867",
       email: "bharathpnambiar@ieee.org",
@@ -357,7 +357,7 @@ const ContactMap: React.FC = () => {
     },
     {
       name: "Vaishnavi N Mahadev",
-      designation: "Vice Chair, IEEE UVCE",
+      designation: "Vice Chairperson, IEEE UVCE",
       phone: "+91 93803 82355",
       phoneLink: "tel:+919380382355",
       email: "vaishnavinm15@ieee.org",
@@ -398,7 +398,7 @@ const ContactMap: React.FC = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-7xl mx-auto">
               <SectionTitle>
-                Contact <span className="text-blue-600">Us</span>
+                For more Queries,  <span className="text-blue-600">Contact </span>
               </SectionTitle>
               <p className="text-center text-slate-600 max-w-3xl mx-auto leading-relaxed -mt-8 mb-16">
                 Get in touch with us and find your way to KAGADA 2025.
@@ -408,7 +408,7 @@ const ContactMap: React.FC = () => {
                 {/* Contact Information (omitted for brevity) */}
                 <div>
                   <h3 className="font-rajdhani text-3xl font-bold mb-8 text-slate-900 text-center">
-                    Event Coordinators
+                    Organisers
                   </h3>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {contacts.map((item, index) => (

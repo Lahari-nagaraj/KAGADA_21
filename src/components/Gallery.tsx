@@ -36,9 +36,10 @@ const Gallery: React.FC = () => {
     "https://res.cloudinary.com/dr3ypljez/image/upload/v1759399172/89c51e01-c4b7-49b7-8c4e-8a25c3beb87e_qsz4mo.jpg",
     // 🔥 converted to jpg
     "https://res.cloudinary.com/dr3ypljez/image/upload/f_jpg/v1759399169/IMG_5928_v0qj4n.heic",
+     "https://res.cloudinary.com/dr3ypljez/image/upload/v1759399261/Screenshot_2025-10-02_143440_cv3js3.png",
     "https://res.cloudinary.com/dr3ypljez/image/upload/f_jpg/v1759399169/IMG_5928_v0qj4n.heic",
     // 🔥 converted to jpg
-    "https://res.cloudinary.com/dr3ypljez/image/upload/v1759399261/Screenshot_2025-10-02_143440_cv3js3.png",
+   
   ];
   const ImageCard = ({ src, index }: { src: string; index: number }) => (
     <div className="flex-shrink-0 w-64 sm:w-80 h-56 sm:h-64 bg-white rounded-lg shadow-md overflow-hidden transform hover:scale-105 transition-transform duration-300 border border-slate-200 group relative">
