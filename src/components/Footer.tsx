@@ -52,48 +52,25 @@ const Footer: React.FC = () => {
     },
   ];
 
+  // Blueprint SVG grid background style
+  const backgroundStyle = `
+    @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
+    .font-roboto-mono { font-family: 'Roboto Mono', monospace; }
+    .site-background {
+      background-color: #f8fafc;
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(226 232 240 / 1)'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e");
+      min-height: 100vh;
+      width: 100%;
+    }
+  `;
+
   return (
     <>
-      {/* Google Fonts */}
-      <style>{`
-          @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
-          .font-roboto-mono { font-family: 'Roboto Mono', monospace; }
-      `}</style>
-
-      <footer className="bg-slate-100 text-slate-700 py-6 font-roboto-mono border-t border-slate-200">
-        <div className="container mx-auto px-4 max-w-6xl">
-          {/* Flex container */}
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            
-            {/* Center: Developer Credit */}
-            <div className="flex flex-col items-center text-center gap-2">
-              <div className="flex items-center gap-2 text-sm sm:text-base">
-                <Code className="text-blue-600" size={18} />
-                <span>Developed by</span>
-                <span className="font-semibold text-slate-600">
-                  Software Development SIG
-                </span>
-              </div>
-              <div className="flex flex-wrap justify-center gap-x-2 text-sm">
-                {developers.map((dev, idx) => (
-                  <span key={dev.name} className="flex items-center gap-x-2">
-                    <a
-                      href={dev.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-600 hover:underline"
-                    >
-                      {dev.name}
-                    </a>
-                    {idx < developers.length - 1 && (
-                      <span className="text-slate-400">/</span>
-                    )}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            {/* Right: Social Links */}
+      <div className="site-background font-roboto-mono">
+        <style>{backgroundStyle}</style>
+        <footer className="py-8 px-4 flex flex-col items-center justify-center w-full">
+          {/* Social links top, centered */}
+          <div className="flex justify-center mb-4">
             <div className="flex gap-3">
               {socials.map((social) => {
                 const Icon = social.icon;
@@ -112,8 +89,35 @@ const Footer: React.FC = () => {
               })}
             </div>
           </div>
-        </div>
-      </footer>
+          {/* Centered developer credit */}
+          <div className="flex flex-col items-center text-center gap-1 w-full">
+            <div className="flex items-center gap-2 text-sm sm:text-base justify-center">
+              <Code className="text-blue-600" size={18} />
+              <span>Developed by</span>
+              <span className="font-semibold text-slate-600">
+                Software Development SIG
+              </span>
+            </div>
+            <div className="flex flex-wrap justify-center gap-x-2 text-[0.58rem] sm:text-xs">
+              {developers.map((dev, idx) => (
+                <span key={dev.name} className="flex items-center gap-x-2">
+                  <a
+                    href={dev.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:underline"
+                  >
+                    {dev.name}
+                  </a>
+                  {idx < developers.length - 1 && (
+                    <span className="text-slate-400">|</span>
+                  )}
+                </span>
+              ))}
+            </div>
+          </div>
+        </footer>
+      </div>
     </>
   );
 };

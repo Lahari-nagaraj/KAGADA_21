@@ -6,8 +6,23 @@ const cardStyle = `bg-white/70 backdrop-blur-md border border-blue-600/20 shadow
                    bg-[linear-gradient(rgba(59,130,246,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.05)_1px,transparent_1px)] 
                    bg-[length:2rem_2rem]`;
 
+// --- Blueprint SVG Grid Background Style ---
+const backgroundStyle = `
+  @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&family=Roboto+Mono:wght@400;700&display=swap');
+  .font-rajdhani { font-family: 'Rajdhani', sans-serif; }
+  .font-roboto-mono { font-family: 'Roboto Mono', monospace; }
+  .site-background {
+    background-color: #f8fafc;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(226 232 240 / 1)'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e");
+    min-height: 100vh;
+    width: 100%;
+  }
+`;
+
 // --- Section Title Component ---
-const SectionTitle: React.FC<{ children: React.ReactNode }> = ({ children }) => (
+const SectionTitle: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => (
   <div className="text-center mb-12 sm:mb-16">
     <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-blue-600/10 rounded-full mb-6">
       <HelpCircle className="text-blue-600" size={40} />
@@ -45,18 +60,15 @@ const FAQs: React.FC = () => {
     },
     {
       question: "Where will KAGADA 2025 take place?",
-      answer:
-        "KAGADA 2025 will take place at UVCE, KR Circle.",
+      answer: "KAGADA 2025 will take place at UVCE, KR Circle.",
     },
     {
       question: "Can one participate in more than one track?",
-      answer:
-        "Yes, participants can take part in more than one track.",
+      answer: "Yes, participants can take part in more than one track.",
     },
     {
       question: "What all events are there in KAGADA 2025?",
-      answer:
-        `KAGADA consists of two category events.\n\nThe Presentation tracks:\n• Paper Presentation\n• Poster Presentation\n• Project Presentation\n\nHumanitarian activities:\n• Ottige Kaliyona\n• Food for Cause`,
+      answer: `KAGADA consists of two category events.\n\nThe Presentation tracks:\n• Paper Presentation\n• Poster Presentation\n• Project Presentation\n\nHumanitarian activities:\n• Ottige Kaliyona\n• Food for Cause`,
     },
   ];
 
@@ -65,23 +77,12 @@ const FAQs: React.FC = () => {
   };
 
   return (
-    <>
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&family=Roboto+Mono:wght@400;700&display=swap');
-        .font-rajdhani { font-family: 'Rajdhani', sans-serif; }
-        .font-roboto-mono { font-family: 'Roboto Mono', monospace; }
-      `}</style>
-
-      <section className="py-16 sm:py-20 bg-slate-50 font-roboto-mono">
+    <div className="site-background font-roboto-mono">
+      <style>{backgroundStyle}</style>
+      <section className="py-16 sm:py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <SectionTitle>Frequently Asked Questions</SectionTitle>
-
-            <p className="text-center text-slate-600 max-w-3xl mx-auto leading-relaxed -mt-8 mb-12">
-              Got questions? We've got answers! Here are the most common
-              inquiries about KAGADA 2025.
-            </p>
-
             {/* FAQ List */}
             <div className={`${cardStyle} p-4 sm:p-6 space-y-2`}>
               {faqs.map((faq, index) => (
@@ -130,7 +131,7 @@ const FAQs: React.FC = () => {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 };
 
