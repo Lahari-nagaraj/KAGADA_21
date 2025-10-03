@@ -6,7 +6,7 @@ import CountdownTimer from "./CountdownTimer";
 import AIHelperModal from "./AIHelperModal";
 
 // Import styles
-import "..index.css";
+import "../index.css";
 
 const App = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
