@@ -41,14 +41,20 @@ const AboutPage = () => {
                 <div className="grid md:grid-cols-2 gap-12 items-center">
                   <div className="space-y-6">
                     <p className="text-slate-700 leading-relaxed text-justify">
-                      Established in 1917 by Bharat Ratna Sir M. Visvesvaraya,
-                      University Visvesvaraya College of Engineering (UVCE) is a
-                      prestigious, AICTE-approved institution. After celebrating
-                      its centenary, UVCE became an autonomous college in March
-                      2022. The college hosts numerous successful events driven
-                      by diligent students and boasts quality placements and
-                      successful alumni ventures. UVCE not only shapes careers
-                      but also prepares students to face real-world challenges.
+                      <b>University of Visvesvaraya College of Engineering</b>,
+                      established in <b>1917</b> by{" "}
+                      <b>Bharat Ratna Sir M Visvesvaraya</b>. UVCE stands as the
+                      fifth engineering college in India and the first in
+                      Karnataka. UVCE provides 8 undergraduate, 24 postgraduate,
+                      and various research programs in fields such as Computer
+                      Science and Engineering, Information Science and
+                      Engineering, Artificial Intelligence and Machine Learning,
+                      Electronics and Communication Engineering, Electrical and
+                      Electronics Engineering, Mechanical Engineering, Civil
+                      Engineering, and Architecture. UVCE is dedicated to
+                      delivering <b>high-quality</b> technical education and is
+                      recognized as one of the{" "}
+                      <b>top engineering colleges in Karnataka.</b>
                     </p>
                   </div>
                   <div className="space-y-6">
@@ -80,7 +86,7 @@ const AboutPage = () => {
                 About <span className="text-blue-600">IEEE UVCE</span>
               </SectionTitle>
 
-              <div className="grid md:grid-cols-3 gap-8 mb-16">
+              {/* <div className="grid md:grid-cols-3 gap-8 mb-16">
                 {[
                   {
                     icon: Zap,
@@ -113,22 +119,42 @@ const AboutPage = () => {
                     </p>
                   </div>
                 ))}
-              </div>
+              </div> */}
 
               <div className={`${cardStyle} p-8 sm:p-12`}>
                 <div className="grid md:grid-cols-2 gap-12 items-center">
                   <div>
                     <p className="text-slate-700 leading-relaxed text-justify">
-                      IEEE UVCE has come to be one of the most recognised
-                      Student Branches across Region 10 of IEEE. Rekindled in
-                      2001, it has grown to a strength of around 400 student
-                      members. The organization's commitment is reflected in
-                      activities like symposiums, workshops, and our flagship
-                      events: KAGADA, IMPETUS, and CodeFury. We stand by our
-                      motto “Striding Ahead,” engaging the community in
-                      technical, humanitarian, and societal causes. Our efforts
-                      were recognized with the 2023 IEEE R10 Special Recognition
-                      of Student Branch Award.
+                      <b>IEEE UVCE</b> is an IEEE student branch at the{" "}
+                      <b>University of Visvesvaraya College of Engineering</b>,
+                      under the aegis of the IEEE Bangalore Section. Started in
+                      2001, IEEE UVCE is dedicated to <b>spreading knowledge</b>{" "}
+                      through a variety of activities. The branch{" "}
+                      <b>provides students with opportunities</b> to attend
+                      global and national IEEE workshops, symposiums, guest
+                      lectures, and conferences. It also{" "}
+                      <b>supports various technical interest groups</b>,
+                      offering guidance and a nurturing platform for students.
+                      IEEE UVCE enriches students' experiences with social,
+                      cultural, and technical events, encourages the use of IEEE
+                      membership benefits, and <b>promotes collaboration</b>{" "}
+                      with the global IEEE community. It has become one of the{" "}
+                      <b>most recognized student branches in IEEE Region 10.</b>{" "}
+                      This year is particularly special as IEEE UVCE celebrates
+                      its{" "}
+                      <b>
+                        Silver Jubilee, marking 25 years of fostering
+                        innovation, professional growth, and academic excellence
+                        among students.
+                      </b>{" "}
+                      To commemorate this milestone, a series of special events
+                      and activities are planned. This year aims to honour the
+                      legacy of IEEE UVCE and its impact on countless students'
+                      lives, highlighting the achievements of its members and
+                      their contributions to the engineering field. The{" "}
+                      <b>Silver Jubilee</b> is a testament to the branch's
+                      enduring <b>commitment to excellence</b> and its pivotal
+                      role in shaping future engineers.
                     </p>
                   </div>
                   <div className="flex justify-center">
@@ -156,25 +182,34 @@ const AboutPage = () => {
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
                   <div>
                     <p className="text-slate-700 leading-relaxed text-justify mb-6">
-                      KAGADA is our Annual National-Level Technical Student
-                      Conference featuring Paper and Poster Presentations and
-                      Project Exhibitions. We believe that furthering technical
-                      knowledge cannot be achieved in the classroom alone.
-                      KAGADA, a recipient of the Darrel Chong Platinum Level
-                      Student Activity Award, provides a platform for students
-                      to pursue undergraduate research, sharpen their intellect,
-                      and exchange ideas.
+                      <b>KAGADA</b> is our esteemed{" "}
+                      <b>Annual National-Level Technical Student Conference</b>,
+                      showcasing{" "}
+                      <b>
+                        Paper and Poster Presentations alongside Project
+                        Exhibitions.
+                      </b>{" "}
+                      Its 20th edition is set for <b>October 26, 2024.</b> At
+                      IEEE UVCE, we are dedicated to expanding technical
+                      knowledge beyond the classroom. KAGADA, recognized with
+                      the <b>Darrel Chong Student Activity Award</b> in both
+                      2016 and 2019, aims to inspire students to pursue research
+                      during their undergraduate studies. This conference
+                      provides an engaging platform for motivated students to{" "}
+                      <b>
+                        sharpen their technical skills, improve their
+                        presentation abilities, and share innovative ideas.
+                      </b>{" "}
+                      Participants emerge as more capable and well-rounded
+                      engineers.
                     </p>
+
                     <p className="text-slate-700 leading-relaxed text-justify">
-                      As part of KAGADA, we run initiatives like{" "}
-                      <span className="font-bold text-blue-700">
-                        Ottige Kaliyona
-                      </span>
-                      , teaching technology to government school students, and{" "}
-                      <span className="font-bold text-blue-700">
-                        Food for Cause
-                      </span>
-                      , a food stall that donates proceeds to an orphanage.
+                      Additionally, KAGADA features initiatives like{" "}
+                      <b>"Ottige Kaliyona,"</b> which teaches government school
+                      students to utilize technology and develop social skills,
+                      and <b>"Food For Cause," </b>a charitable project where
+                      profits from a food stall are donated to an orphanage.
                     </p>
                   </div>
 
@@ -190,8 +225,8 @@ const AboutPage = () => {
                         value: "50+",
                         label: "Colleges Participating",
                       },
-                      { icon: Trophy, value: "₹5L+", label: "Total Prizes" },
-                      { icon: Rocket, value: "24", label: "Years of Legacy" },
+                      { icon: Trophy, value: "₹40K+", label: "Total Prizes" },
+                      { icon: Rocket, value: "20", label: "Years of Legacy" },
                     ].map((stat, index) => (
                       <div
                         key={index}
