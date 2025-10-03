@@ -63,6 +63,7 @@ import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import About from "./components/About";
 import Header from "./components/Header";
+import AIHelperButton from "./components/AIHelperButton";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -88,17 +89,16 @@ function App() {
       <AboutIEEE />
       <AboutKagada /> */}
       <ExploreTracks />
-      
       {/* Content related to winners and prizes */}
-      <PrizePool />          {/* 👈 NEW: Render the PrizePool component */}
+      <PrizePool /> {/* 👈 NEW: Render the PrizePool component */}
       <PreviousWinners />
-      
       <Gallery />
       <AfterMovies />
       <FAQs />
       <ContactMap />
       <Footer />
       <ScrollToTop />
+      <AIHelperButton /> {/* 👈 NEW: AI Helper Button */}
     </div>
   );
 }
