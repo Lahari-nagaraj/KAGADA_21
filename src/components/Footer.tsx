@@ -67,53 +67,56 @@ const Footer: React.FC = () => {
     <>
       <div className="footer-background font-roboto-mono">
         <style>{backgroundStyle}</style>
-        <footer className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center w-full">
-          {/* Social links top, centered */}
-          <div className="flex justify-center mb-6 sm:mb-8">
-            <div className="flex gap-4 sm:gap-5">
-              {socials.map((social) => {
-                const Icon = social.icon;
-                return (
-                  <a
-                    key={social.name}
-                    href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-10 h-10 sm:w-12 sm:h-12 bg-slate-200 rounded-full flex items-center justify-center text-slate-600 transition-all duration-300 transform hover:scale-110 hover:bg-blue-600 hover:text-white"
-                    aria-label={social.name}
-                  >
-                    <Icon size={20} />
-                  </a>
-                );
-              })}
-            </div>
-          </div>
-          
-          {/* Centered developer credit */}
-          <div className="flex flex-col items-center text-center gap-3 sm:gap-4 w-full max-w-2xl">
-            <div className="flex items-center gap-3 text-base sm:text-lg lg:text-xl justify-center">
-              <Code className="text-blue-600" size={20} />
-              <span className="text-slate-800 font-medium">Developed by</span>
-              <span className="font-semibold text-slate-800">
-                Software Development SIG
-              </span>
-            </div>
-            <div className="flex flex-wrap justify-center gap-x-3 gap-y-1 text-sm sm:text-base">
-              {developers.map((dev, idx) => (
-                <span key={dev.name} className="flex items-center gap-x-3">
-                  <a
-                    href={dev.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-blue-600 hover:text-blue-800 hover:underline font-medium transition-colors"
-                  >
-                    {dev.name}
-                  </a>
-                  {idx < developers.length - 1 && (
-                    <span className="text-slate-500">|</span>
-                  )}
+        <footer className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 w-full">
+          {/* Main content: developed by on left, social icons on right */}
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-6 max-w-6xl mx-auto">
+            {/* Left side - Developer credit */}
+            <div className="flex flex-col items-center sm:items-start text-center sm:text-left gap-3 sm:gap-4">
+              <div className="flex items-center gap-3 text-base sm:text-lg lg:text-xl">
+                <Code className="text-blue-600" size={20} />
+                <span className="text-slate-800 font-medium">Developed by</span>
+                <span className="font-semibold text-slate-800">
+                  Software Development SIG
                 </span>
-              ))}
+              </div>
+              <div className="flex flex-wrap justify-center sm:justify-start gap-x-3 gap-y-1 text-sm sm:text-base">
+                {developers.map((dev, idx) => (
+                  <span key={dev.name} className="flex items-center gap-x-3">
+                    <a
+                      href={dev.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 hover:text-blue-800 hover:underline font-medium transition-colors"
+                    >
+                      {dev.name}
+                    </a>
+                    {idx < developers.length - 1 && (
+                      <span className="text-slate-500">|</span>
+                    )}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Right side - Social icons */}
+            <div className="flex justify-center sm:justify-end">
+              <div className="flex gap-4 sm:gap-5">
+                {socials.map((social) => {
+                  const Icon = social.icon;
+                  return (
+                    <a
+                      key={social.name}
+                      href={social.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-10 h-10 sm:w-12 sm:h-12 bg-slate-200 rounded-full flex items-center justify-center text-slate-600 transition-all duration-300 transform hover:scale-110 hover:bg-blue-600 hover:text-white"
+                      aria-label={social.name}
+                    >
+                      <Icon size={20} />
+                    </a>
+                  );
+                })}
+              </div>
             </div>
           </div>
 
