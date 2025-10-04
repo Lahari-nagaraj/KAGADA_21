@@ -5,7 +5,7 @@ const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
-  const navLinks = ["About", "Tracks", "Winners", "Gallery", "Contact"];
+  const navLinks = ["About", "Tracks", "Prize Pool", "Winners", "Gallery", "Contact"];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -54,18 +54,18 @@ const Header: React.FC = () => {
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center gap-6 font-roboto-mono text-sm font-semibold">
-              {navLinks.map((link) => (
-                <a
-                  key={link}
-                  href={`#${link.toLowerCase()}`}
-                  className="text-slate-700 hover:text-blue-600 transition-colors"
-                >
-                  {link}
-                </a>
-              ))}
-              <button className="bg-blue-600 text-white font-bold py-2 px-5 rounded-md hover:bg-blue-500 transition-all duration-300 transform hover:scale-105 shadow-md shadow-blue-500/20">
-                Register Now
-              </button>
+              {navLinks.map((link) => {
+                const href = link === "Prize Pool" ? "#prizes" : `#${link.toLowerCase().replace(/\s+/g, '-')}`;
+                return (
+                  <a
+                    key={link}
+                    href={href}
+                    className="text-slate-700 hover:text-blue-600 transition-colors"
+                  >
+                    {link}
+                  </a>
+                );
+              })}
             </nav>
 
             {/* Mobile Menu Button */}
@@ -109,23 +109,20 @@ const Header: React.FC = () => {
           </div>
 
           <nav className="flex flex-col items-center gap-8 font-roboto-mono text-xl font-semibold">
-            {navLinks.map((link) => (
-              <a
-                key={link}
-                href={`#${link.toLowerCase()}`}
-                className="text-slate-800 hover:text-blue-600 transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {link}
-              </a>
-            ))}
+            {navLinks.map((link) => {
+              const href = link === "Prize Pool" ? "#prizes" : `#${link.toLowerCase().replace(/\s+/g, '-')}`;
+              return (
+                <a
+                  key={link}
+                  href={href}
+                  className="text-slate-800 hover:text-blue-600 transition-colors"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {link}
+                </a>
+              );
+            })}
           </nav>
-
-          <div className="mt-16 text-center">
-            <button className="bg-blue-600 text-white font-bold py-3 px-8 rounded-md text-lg hover:bg-blue-500 transition-all duration-300 transform hover:scale-105 shadow-lg shadow-blue-500/30 w-full">
-              Register Now
-            </button>
-          </div>
         </div>
       </div>
     </>

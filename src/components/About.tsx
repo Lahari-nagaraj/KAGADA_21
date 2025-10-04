@@ -1,5 +1,6 @@
 import React from "react";
 import { Zap, Globe, Users, Star, Trophy, Rocket } from "lucide-react";
+import logo2 from "../assets/logo2.png";
 
 // --- Reusable "Highlighted Glass Pane" Card Style ---
 const cardStyle = `bg-slate-50/60 backdrop-blur-xl border-2 border-blue-500/30 shadow-2xl rounded-lg`;
@@ -135,7 +136,7 @@ const AboutPage = () => {
                 </div>
                 <div className="flex justify-center">
                   <img
-                    src="src/assets/logo2.png"
+                    src={logo2}
                     alt="IEEE Logo"
                     className="w-64 h-auto object-contain"
                   />
