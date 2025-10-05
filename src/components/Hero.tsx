@@ -1,19 +1,19 @@
 import React, { useState, useCallback } from "react";
-import { ScrollText, Feather, School, Sparkles } from "lucide-react";
+import { ScrollText, Feather, School } from "lucide-react";
 
 // Import custom components
 import CountdownTimer from "./CountdownTimer";
-import AIHelperModal from "./AIHelperModal";
+// import AIHelperModal from "./AIHelperModal";
 
 // Import styles
 import "../index.css";
 
 const App = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  // const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // Use useCallback to prevent re-creating functions on each render
-  const openModal = useCallback(() => setIsModalOpen(true), []);
-  const closeModal = useCallback(() => setIsModalOpen(false), []);
+  // // Use useCallback to prevent re-creating functions on each render
+  // const openModal = useCallback(() => setIsModalOpen(true), []);
+  // const closeModal = useCallback(() => setIsModalOpen(false), []);
 
   return (
     <>
@@ -59,19 +59,19 @@ const App = () => {
               <button className="bg-blue-600 text-white font-bold py-3 px-8 sm:px-10 rounded-md text-base sm:text-lg hover:bg-blue-500 transition-all duration-300 transform hover:scale-105 shadow-lg shadow-blue-500/20 w-full sm:w-auto">
                 Register Now
               </button>
-              <button
+              {/* <button
                 onClick={openModal}
                 className="bg-blue-600/10 text-blue-800 font-bold py-3 px-8 sm:px-10 rounded-md text-base sm:text-lg hover:bg-blue-600/20 transition-all duration-300 transform hover:scale-105 shadow-lg border border-blue-600/30 flex items-center justify-center w-full sm:w-auto"
               >
                 <Sparkles size={20} className="mr-2" />
                 Ask AI Assistant
-              </button>
+              </button> */}
             </div>
           </div>
         </main>
       </div>
 
-      <AIHelperModal isOpen={isModalOpen} onClose={closeModal} />
+      {/* <AIHelperModal isOpen={isModalOpen} onClose={closeModal} /> */}
     </>
   );
 };

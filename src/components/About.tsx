@@ -65,8 +65,8 @@ const AboutPage = () => {
                 </div>
                 <div className="space-y-6">
                   <img
-                    src="https://res.cloudinary.com/dr3ypljez/image/upload/v1759395273/clg_oacyq7.jpg"
-                    alt="Students in a library"
+                    src="https://th-i.thgim.com/public/incoming/mgxxq/article65508289.ece/alternates/FREE_1200/UVCE_03.jpg"
+                    alt="UVCE College Campus"
                     className="w-full h-64 object-cover rounded-lg shadow-md"
                   />
                   <div className="bg-blue-600/5 p-4 rounded-lg border border-blue-600/10 text-center">
