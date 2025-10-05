@@ -58,6 +58,7 @@ import PrizePool from "./components/PrizePool"; // 👈 NEW: Import the PrizePoo
 import Gallery from "./components/Gallery";
 import AfterMovies from "./components/AfterMovies";
 import FAQs from "./components/FAQs";
+import Sponsors from "./components/Sponsors";
 import ContactMap from "./components/ContactMap";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
@@ -94,6 +95,7 @@ function App() {
       <PreviousWinners />
       <Gallery />
       <AfterMovies />
+      <Sponsors />
       <FAQs />
       <ContactMap />
       <Footer />
