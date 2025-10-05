@@ -14,7 +14,7 @@ const backgroundStyle = `
   .site-background {
     background-color: #f8fafc;
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(226 232 240 / 1)'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e");
-    min-height: 100vh;
+    min-height: auto; /* changed from 100vh to fit content */
     width: 100%;
   }
 `;
@@ -23,11 +23,11 @@ const backgroundStyle = `
 const SectionTitle: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => (
-  <div className="text-center mb-10">
+  <div className="text-center mb-6">
     <h2 className="font-rajdhani text-4xl sm:text-5xl md:text-6xl font-bold text-slate-900 tracking-wider">
       {children}
     </h2>
-    <div className="w-32 h-1 bg-blue-600/50 mx-auto rounded-full mt-4"></div>
+    <div className="w-32 h-1 bg-blue-600/50 mx-auto rounded-full mt-3"></div>
   </div>
 );
 
@@ -36,7 +36,8 @@ const PrizePool: React.FC = () => {
   return (
     <div className="site-background font-roboto-mono">
       <style>{backgroundStyle}</style>
-      <section id="prizes" className="py-16 sm:py-20">
+      {/* --- Reduced Top/Bottom Padding --- */}
+      <section id="prizes" className="pt-6 pb-4 sm:pt-8 sm:pb-4">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
             <SectionTitle>
@@ -72,7 +73,7 @@ const PrizePool: React.FC = () => {
                 </div>
               </div>
             </div>
-            <div className="mt-12 text-center p-5 bg-blue-100/60 border-l-4 border-blue-600 rounded-lg font-semibold text-blue-800">
+            <div className="mt-4 sm:mt-6 text-center p-5 bg-blue-100/60 border-l-4 border-blue-600 rounded-lg font-semibold text-blue-800">
               🎖️ Every participant will be awarded a{" "}
               <span className="text-slate-900">
                 Certificate of Participation
