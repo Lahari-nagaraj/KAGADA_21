@@ -29,19 +29,15 @@ const AboutPage = () => {
         .font-roboto-mono { font-family: 'Roboto Mono', monospace; }
 
         .site-background {
-          /* Base background color */
           background-color: #f8fafc; /* slate-50 */
-
-          /* SVG data URL for the repeating blueprint grid */
           background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(226 232 240 / 1)'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e");
-          
           min-height: 100vh;
           width: 100%;
         }
       `}</style>
 
       {/* --- About UVCE Section --- */}
-      <section className="py-16 sm:py-20 font-roboto-mono">
+      <section className="py-10 sm:py-12 font-roboto-mono">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <SectionTitle>
@@ -50,7 +46,6 @@ const AboutPage = () => {
             <div className={`${cardStyle} p-8 sm:p-12`}>
               <div className="grid md:grid-cols-2 gap-12 items-center">
                 <div className="space-y-6">
-                  {/* --- UPDATED CONTENT --- */}
                   <p className="text-slate-700 leading-relaxed text-justify">
                     <b>University of Visvesvaraya College of Engineering</b>,
                     established in <b>1917</b> by{" "}
@@ -90,7 +85,7 @@ const AboutPage = () => {
       </section>
 
       {/* --- About IEEE Section --- */}
-      <section className="py-16 sm:py-20 font-roboto-mono">
+      <section className="py-10 sm:py-12 font-roboto-mono">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <SectionTitle>
@@ -100,7 +95,6 @@ const AboutPage = () => {
             <div className={`${cardStyle} p-8 sm:p-12`}>
               <div className="grid md:grid-cols-2 gap-12 items-center">
                 <div>
-                  {/* --- UPDATED CONTENT --- */}
                   <p className="text-slate-700 leading-relaxed text-justify">
                     <b>IEEE UVCE</b> is an IEEE student branch at the{" "}
                     <b>University of Visvesvaraya College of Engineering</b>,
@@ -148,7 +142,7 @@ const AboutPage = () => {
       </section>
 
       {/* --- About Kagada Section --- */}
-      <section className="py-16 sm:py-20 font-roboto-mono">
+      <section className="py-10 sm:py-12 font-roboto-mono">
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto">
             <SectionTitle>
@@ -158,7 +152,6 @@ const AboutPage = () => {
             <div className={`${cardStyle} p-8 sm:p-12`}>
               <div className="grid lg:grid-cols-2 gap-12 items-center">
                 <div>
-                  {/* --- UPDATED CONTENT --- */}
                   <p className="text-slate-700 leading-relaxed text-justify mb-6">
                     <b>KAGADA</b> is our esteemed{" "}
                     <b>Annual National-Level Technical Student Conference</b>,
