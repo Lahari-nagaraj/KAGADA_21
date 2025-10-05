@@ -49,7 +49,7 @@
 
 // export default App;
 
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import LoadingScreen from "./components/LoadingScreen";
 import Hero from "./components/Hero";
 import ExploreTracks from "./components/ExploreTracks";
@@ -63,7 +63,7 @@ import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import About from "./components/About";
 import Header from "./components/Header";
-import AIHelperButton from "./components/AIHelperButton";
+//import AIHelperButton from "./components/AIHelperButton";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -98,7 +98,7 @@ function App() {
       <ContactMap />
       <Footer />
       <ScrollToTop />
-      <AIHelperButton /> {/* 👈 NEW: AI Helper Button */}
+      {/* <AIHelperButton /> 👈 NEW: AI Helper Button */}
     </div>
   );
 }
