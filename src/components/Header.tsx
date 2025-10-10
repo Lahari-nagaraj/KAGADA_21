@@ -48,11 +48,25 @@ const Header: React.FC = () => {
         >
           <div className="flex items-center justify-between p-4">
             {/* Logo */}
-            <a
-              href="#"
-              className="font-rajdhani text-3xl font-bold text-slate-900"
-            >
-              KAGADA <span className="text-blue-600">'25</span>
+            <a href="#" className="flex items-center">
+              {logoError ? (
+                <span className="font-rajdhani text-3xl font-bold text-slate-900">
+                  KAGADA <span className="text-blue-600">'25</span>
+                </span>
+              ) : (
+                <img
+                  src="/assets/kagada.png"
+                  alt="KAGADA"
+                  className="h-10 w-auto"
+                  onError={() => setLogoError(true)}
+                />
+              )}
+            <a href="#" className="flex items-center">
+              <img
+                src={logo}
+                alt="Kagada Logo"
+                className="max-h-10 w-auto object-contain transition-transform duration-300 hover:scale-105"
+              />
             </a>
 
             {/* Desktop Navigation */}
@@ -102,9 +116,26 @@ const Header: React.FC = () => {
             <a
               href="#"
               className="flex items-center"
+              className="flex items-center"
               onClick={() => setIsMenuOpen(false)}
             >
-              KAGADA <span className="text-blue-600">'25</span>
+              {logoError ? (
+                <span className="font-rajdhani text-3xl font-bold text-slate-900">
+                  KAGADA <span className="text-blue-600">'25</span>
+                </span>
+              ) : (
+                <img
+                  src="/assets/kagada.png"
+                  alt="KAGADA"
+                  className="h-10 w-auto"
+                  onError={() => setLogoError(true)}
+                />
+              )}
+              <img
+                src={logo}
+                alt="Kagada Logo"
+                className="max-h-10 w-auto object-contain"
+              />
             </a>
             <button
               onClick={() => setIsMenuOpen(false)}
