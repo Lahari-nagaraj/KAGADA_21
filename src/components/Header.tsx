@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
-import logo from "../assets/kagada 2025.png";
+import handle from "../assets/handle.png";
+
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -55,7 +56,7 @@ const Header: React.FC = () => {
                 </span>
               ) : (
                 <img
-                  src={logo}
+                  src={handle}
                   alt="Kagada Logo"
                   className="max-h-10 w-auto object-contain transition-transform duration-300 hover:scale-105"
                   onError={() => setLogoError(true)}
@@ -118,9 +119,9 @@ const Header: React.FC = () => {
                 </span>
               ) : (
                 <img
-                  src={logo}
+                  src={handle}
                   alt="Kagada Logo"
-                  className="max-h-10 w-auto object-contain"
+                  className="max-h-15 w-auto object-contain"
                   onError={() => setLogoError(true)}
                 />
               )}
