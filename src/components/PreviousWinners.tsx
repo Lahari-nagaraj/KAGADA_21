@@ -103,7 +103,7 @@ const PreviousWinners: React.FC = () => {
                     {/* Header */}
                     <div className="flex items-center justify-between mb-4">
                       <h3 className="font-rajdhani text-xl sm:text-2xl font-extrabold text-slate-800 tracking-wide 
-                                     bg-gradient-to-r from-blue-600 to-indigo-500 bg-clip-text text-transparent">
+                                     bg-gradient-to-r from-black to-black text-blue-600 bg-clip-text text-transparent">
                         {winner.title}
                       </h3>
                       <div className="bg-blue-600/10 p-2.5 rounded-lg shadow-sm group-hover:bg-blue-600/20 transition">
