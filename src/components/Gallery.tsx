@@ -256,11 +256,21 @@ const Gallery: React.FC = () => {
     }
 
     .animate-left {
-      animation: scroll-left 35s linear infinite;
+      animation: scroll-left 20s linear infinite;
     }
 
     .animate-right {
-      animation: scroll-right 35s linear infinite;
+      animation: scroll-right 20s linear infinite;
+    }
+
+    @media (max-width: 640px) {
+      .animate-left {
+        animation: scroll-left 15s linear infinite;
+      }
+
+      .animate-right {
+        animation: scroll-right 15s linear infinite;
+      }
     }
 
     .scroller > div {
@@ -279,9 +289,9 @@ const Gallery: React.FC = () => {
           <section className="pt-1 sm:pt-2 pb-8 sm:pb-10 font-roboto-mono overflow-hidden">
             <div className="container mx-auto">
               <SectionTitle>
-                Gallery <span className="text-blue-600">Moments</span>
+                <span className="text-slate-900">Gallery</span> <span className="text-blue-600">Moments</span>
               </SectionTitle>
-              <p className="text-center text-slate-600 max-w-3xl mx-auto leading-relaxed -mt-4 mb-6 px-4">
+              <p className="text-center text-slate-900 max-w-3xl mx-auto leading-relaxed -mt-4 mb-6 px-4 font-poppins">
                 Capturing the essence of innovation, creativity, and celebration
                 from past KAGADA events.
               </p>
