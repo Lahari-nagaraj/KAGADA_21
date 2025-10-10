@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Zap, Globe, Users, Star, Trophy, Rocket } from "lucide-react";
 import logo2 from "../assets/logo2.png";
 
@@ -35,9 +35,11 @@ const AboutPage = () => {
           width: 100%;
         }
       `}</style>
+      {/* Mobile truncation helper */}
+      <MobileTruncatedStyle />
 
       {/* --- About UVCE Section --- */}
-      <section className="py-10 sm:py-12 font-roboto-mono">
+      <section className="py-6 sm:py-8 font-roboto-mono">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <SectionTitle>
@@ -46,7 +48,9 @@ const AboutPage = () => {
             <div className={`${cardStyle} p-8 sm:p-12`}>
               <div className="grid md:grid-cols-2 gap-12 items-center">
                 <div className="space-y-6">
-                  <p className="text-slate-700 leading-relaxed text-justify">
+                  {/* Mobile-only truncation wrapper */}
+                  <MobileTruncated>
+                    <p className="text-slate-700 leading-relaxed text-justify">
                     <b>University of Visvesvaraya College of Engineering</b>,
                     established in <b>1917</b> by{" "}
                     <b>Bharat Ratna Sir M Visvesvaraya</b>. UVCE stands as the
@@ -61,7 +65,8 @@ const AboutPage = () => {
                     delivering <b>high-quality</b> technical education and is
                     recognized as one of the{" "}
                     <b>top engineering colleges in Karnataka.</b>
-                  </p>
+                    </p>
+                  </MobileTruncated>
                 </div>
                 <div className="space-y-6">
                   <img
@@ -85,7 +90,7 @@ const AboutPage = () => {
       </section>
 
       {/* --- About IEEE Section --- */}
-      <section className="py-10 sm:py-12 font-roboto-mono">
+      <section className="py-6 sm:py-8 font-roboto-mono">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <SectionTitle>
@@ -95,7 +100,8 @@ const AboutPage = () => {
             <div className={`${cardStyle} p-8 sm:p-12`}>
               <div className="grid md:grid-cols-2 gap-12 items-center">
                 <div>
-                  <p className="text-slate-700 leading-relaxed text-justify">
+                  <MobileTruncated>
+                    <p className="text-slate-700 leading-relaxed text-justify">
                     <b>IEEE UVCE</b> is an IEEE student branch at the{" "}
                     <b>University of Visvesvaraya College of Engineering</b>,
                     under the aegis of the IEEE Bangalore Section. Started in
@@ -126,7 +132,8 @@ const AboutPage = () => {
                     <b>Silver Jubilee</b> is a testament to the branch's
                     enduring <b>commitment to excellence</b> and its pivotal
                     role in shaping future engineers.
-                  </p>
+                    </p>
+                  </MobileTruncated>
                 </div>
                 <div className="flex justify-center">
                   <img
@@ -142,7 +149,7 @@ const AboutPage = () => {
       </section>
 
       {/* --- About Kagada Section --- */}
-      <section className="py-10 sm:py-12 font-roboto-mono">
+      <section className="py-6 sm:py-8 font-roboto-mono">
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto">
             <SectionTitle>
@@ -152,7 +159,8 @@ const AboutPage = () => {
             <div className={`${cardStyle} p-8 sm:p-12`}>
               <div className="grid lg:grid-cols-2 gap-12 items-center">
                 <div>
-                  <p className="text-slate-700 leading-relaxed text-justify mb-6">
+                  <MobileTruncated>
+                    <p className="text-slate-700 leading-relaxed text-justify mb-6">
                     <b>KAGADA</b> is our esteemed{" "}
                     <b>Annual National-Level Technical Student Conference</b>,
                     showcasing{" "}
@@ -160,7 +168,7 @@ const AboutPage = () => {
                       Paper and Poster Presentations alongside Project
                       Exhibitions.
                     </b>{" "}
-                    Its 20th edition is set for <b>October 26, 2024.</b> At IEEE
+                    Its 21st edition is set for <b>November 8, 2025.</b> At IEEE
                     UVCE, we are dedicated to expanding technical knowledge
                     beyond the classroom. KAGADA, recognized with the{" "}
                     <b>Darrel Chong Student Activity Award</b> in both 2016 and
@@ -173,14 +181,15 @@ const AboutPage = () => {
                     </b>{" "}
                     Participants emerge as more capable and well-rounded
                     engineers.
-                  </p>
-                  <p className="text-slate-700 leading-relaxed text-justify">
+                    </p>
+                    <p className="text-slate-700 leading-relaxed text-justify">
                     Additionally, KAGADA features initiatives like{" "}
                     <b>"Ottige Kaliyona,"</b> which teaches government school
                     students to utilize technology and develop social skills,
                     and <b>"Food For Cause," </b>a charitable project where
                     profits from a food stall are donated to an orphanage.
-                  </p>
+                    </p>
+                  </MobileTruncated>
                 </div>
 
                 <div className="grid grid-cols-2 gap-4 sm:gap-6">
@@ -223,3 +232,44 @@ const AboutPage = () => {
 };
 
 export default AboutPage;
+
+// --- Helper: Injects fade style and provides mobile-only truncation logic ---
+const MobileTruncatedStyle: React.FC = () => (
+  <style>{`
+    @media (max-width: 640px) {
+      .mobile-clamp {
+        position: relative;
+        display: block;
+        max-height: 7.5rem; /* ~5 lines depending on font-size */
+        overflow: hidden;
+      }
+      .mobile-clamp::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 3rem;
+        background: linear-gradient(to bottom, rgba(248,250,252,0), rgba(248,250,252,1));
+      }
+    }
+  `}</style>
+);
+
+const MobileTruncated: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const [expanded, setExpanded] = useState(false);
+  return (
+    <div>
+      <div className={expanded ? "" : "sm:hidden mobile-clamp"}>{children}</div>
+      {/* Desktop shows full content always */}
+      {!expanded && <div className="hidden sm:block">{children}</div>}
+      <button
+        className="sm:hidden mt-3 inline-flex items-center gap-2 text-blue-700 font-semibold hover:underline"
+        onClick={() => setExpanded(!expanded)}
+        aria-expanded={expanded}
+      >
+        {expanded ? "Show less" : "Know more"}
+      </button>
+    </div>
+  );
+};

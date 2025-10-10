@@ -127,7 +127,7 @@ export default function ExploreTracksCarousel() {
 
           {/* Carousel Container */}
           <div className="relative max-w-7xl mx-auto">
-            <div className="flex items-center justify-center gap-4 sm:gap-8">
+            <div className="flex items-center justify-center gap-2 sm:gap-4">
               <div className="hidden lg:block w-full max-w-xs">
                 <TrackCard track={tracks[leftIndex]} isActive={false} index={leftIndex} />
               </div>
@@ -160,18 +160,6 @@ export default function ExploreTracksCarousel() {
               </button>
             </div>
 
-            <div className="flex justify-center gap-2 mt-6">
-              {tracks.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setActive(index)}
-                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                    index === active ? "bg-slate-800 scale-125" : "bg-slate-400 hover:bg-slate-600"
-                  }`}
-                  aria-label={`Go to track ${index + 1}`}
-                />
-              ))}
-            </div>
           </div>
         </div>
       </section>
@@ -223,36 +211,6 @@ function TrackCard({
           {track.description}
         </p>
 
-        {track.features && (
-          <div className="mb-3 flex-shrink-0">
-            <div className="flex flex-wrap justify-center gap-1">
-              {track.features.slice(0, 2).map((feature, idx) => (
-                <span
-                  key={idx}
-                  className="bg-slate-100 text-slate-700 px-2 py-1 rounded-full text-xs font-medium border border-slate-200"
-                >
-                  {feature}
-                </span>
-              ))}
-              {track.features.length > 2 && (
-                <span className="bg-slate-100 text-slate-700 px-2 py-1 rounded-full text-xs font-medium border border-slate-200">
-                  +{track.features.length - 2}
-                </span>
-              )}
-            </div>
-          </div>
-        )}
-
-        <div className="space-y-1 flex-shrink-0">
-          <div className="text-center">
-            <span className="text-xs text-slate-600 font-medium">{track.duration}</span>
-          </div>
-          <div className="text-center">
-            <span className="text-xs font-semibold text-slate-900">
-              Fee: <span className="text-slate-800">{track.fee}</span>
-            </span>
-          </div>
-        </div>
       </div>
 
       {hasRegisterButton && (

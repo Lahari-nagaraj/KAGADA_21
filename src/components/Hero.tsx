@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from "react";
-import { ScrollText, Feather, School } from "lucide-react";
+import { ScrollText, Feather, School, ChevronDown } from "lucide-react";
 
 // Import custom components
 import CountdownTimer from "./CountdownTimer";
@@ -8,12 +8,19 @@ import CountdownTimer from "./CountdownTimer";
 // Import styles
 import "../index.css";
 
-const App = () => {
+const Hero = () => {
   // const [isModalOpen, setIsModalOpen] = useState(false);
 
   // // Use useCallback to prevent re-creating functions on each render
   // const openModal = useCallback(() => setIsModalOpen(true), []);
   // const closeModal = useCallback(() => setIsModalOpen(false), []);
+
+  const scrollToTracks = () => {
+    const tracksSection = document.getElementById('tracks');
+    if (tracksSection) {
+      tracksSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <>
@@ -55,17 +62,17 @@ const App = () => {
             </p>
             <div className="w-48 h-px bg-blue-600/30 mx-auto"></div>
             <CountdownTimer />
-            <div className="pt-6 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <button className="bg-blue-600 text-white font-bold py-3 px-8 sm:px-10 rounded-md text-base sm:text-lg hover:bg-blue-500 transition-all duration-300 transform hover:scale-105 shadow-lg shadow-blue-500/20 w-full sm:w-auto">
-                Register Now
-              </button>
-              {/* <button
-                onClick={openModal}
-                className="bg-blue-600/10 text-blue-800 font-bold py-3 px-8 sm:px-10 rounded-md text-base sm:text-lg hover:bg-blue-600/20 transition-all duration-300 transform hover:scale-105 shadow-lg border border-blue-600/30 flex items-center justify-center w-full sm:w-auto"
+            <div className="pt-6 flex flex-col items-center justify-center gap-6">
+              <p className="text-blue-800 font-semibold text-lg sm:text-xl tracking-wider">
+                Explore Tracks
+              </p>
+              <button 
+                onClick={scrollToTracks}
+                className="bg-blue-600/10 text-blue-800 p-3 rounded-full hover:bg-blue-600/20 transition-all duration-300 transform hover:scale-110 shadow-lg border border-blue-600/30 animate-bounce"
+                aria-label="Scroll to tracks section"
               >
-                <Sparkles size={20} className="mr-2" />
-                Ask AI Assistant
-              </button> */}
+                <ChevronDown size={24} />
+              </button>
             </div>
           </div>
         </main>
@@ -76,4 +83,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default Hero;

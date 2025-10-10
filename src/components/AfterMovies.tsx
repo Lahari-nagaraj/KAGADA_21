@@ -66,7 +66,7 @@ const AfterMovies: React.FC = () => {
     <>
       <div className="site-background font-roboto-mono">
         <style>{backgroundStyle}</style>
-        <section className="py-16 sm:py-20 font-roboto-mono">
+        <section className="py-6 sm:py-8 font-roboto-mono">
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
               <SectionTitle>

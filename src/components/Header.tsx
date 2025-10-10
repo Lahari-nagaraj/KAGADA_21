@@ -5,6 +5,7 @@ import logo from "../assets/kagada 2025.png"; // ✅ Update path if needed
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [logoError, setLogoError] = useState(false);
 
   const navLinks = ["About", "Tracks", "Prize Pool", "Winners", "Gallery", "Contact"];
 
@@ -47,12 +48,11 @@ const Header: React.FC = () => {
         >
           <div className="flex items-center justify-between p-4">
             {/* Logo */}
-            <a href="#" className="flex items-center">
-              <img
-                src={logo}
-                alt="Kagada Logo"
-                className="max-h-10 w-auto object-contain transition-transform duration-300 hover:scale-105"
-              />
+            <a
+              href="#"
+              className="font-rajdhani text-3xl font-bold text-slate-900"
+            >
+              KAGADA <span className="text-blue-600">'25</span>
             </a>
 
             {/* Desktop Navigation */}
@@ -104,11 +104,7 @@ const Header: React.FC = () => {
               className="flex items-center"
               onClick={() => setIsMenuOpen(false)}
             >
-              <img
-                src={logo}
-                alt="Kagada Logo"
-                className="max-h-10 w-auto object-contain"
-              />
+              KAGADA <span className="text-blue-600">'25</span>
             </a>
             <button
               onClick={() => setIsMenuOpen(false)}

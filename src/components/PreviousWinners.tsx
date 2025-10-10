@@ -58,7 +58,7 @@ const PreviousWinners: React.FC = () => {
   return (
     <div className="site-background font-roboto-mono">
       <style>{backgroundStyle}</style>
-      <section id="winners" className="pt-8 pb-6 sm:pt-10 sm:pb-8">
+      <section id="winners" className="py-6 sm:py-8">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <SectionTitle>

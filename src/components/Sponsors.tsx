@@ -62,21 +62,56 @@ const Sponsors: React.FC = () => {
   return (
     <div className="site-background font-roboto-mono">
       <style>{backgroundStyle}</style>
-      <section id="sponsors" className="py-12 sm:py-16">
+      <section id="sponsors" className="py-6 sm:py-8">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
             <SectionTitle>
               <span className="text-blue-600">Our Sponsors</span>
             </SectionTitle>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            {/* Mobile: horizontal snap carousel */}
+            <div className="md:hidden -mx-4 px-4">
+              <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-2">
+                {sponsors.map((sponsor) => (
+                  <div
+                    key={sponsor.name}
+                    className={`${cardStyle} snap-center min-w-[80%] p-6 relative flex flex-col items-center text-center hover:-rotate-1 transition-transform`}
+                  >
+                    <span className="absolute top-2 right-2 text-[10px] uppercase tracking-wide bg-blue-600 text-white px-2 py-0.5 rounded">Partner</span>
+                    <div className="w-28 h-28 bg-white rounded-md flex items-center justify-center overflow-hidden border border-blue-600/10 shadow">
+                      <img
+                        src={sponsor.logoUrl}
+                        alt={`${sponsor.name} logo`}
+                        className="w-full h-full object-contain p-3 grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition"
+                        loading="lazy"
+                      />
+                    </div>
+                    <h3 className="mt-4 font-rajdhani text-2xl font-bold text-slate-900">{sponsor.name}</h3>
+                    <a
+                      href={sponsor.website}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-4 inline-flex items-center gap-2 bg-blue-600 text-white font-semibold py-2 px-4 rounded-md hover:bg-blue-500 transition-colors"
+                      aria-label={`Visit ${sponsor.name} website`}
+                    >
+                      Explore More
+                      <ExternalLink size={16} />
+                    </a>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Desktop/tablet: clean grid */}
+            <div className="hidden md:grid grid-cols-2 lg:grid-cols-3 gap-6">
               {sponsors.map((sponsor) => (
-                <div key={sponsor.name} className={`${cardStyle} p-6 flex flex-col items-center text-center`}>
-                  <div className="w-28 h-28 sm:w-32 sm:h-32 bg-white rounded-md flex items-center justify-center overflow-hidden border border-blue-600/10 shadow">
+                <div key={sponsor.name} className={`${cardStyle} p-6 relative flex flex-col items-center text-center hover:-rotate-1 transition-transform`}>
+                  <span className="absolute top-2 right-2 text-[10px] uppercase tracking-wide bg-blue-600 text-white px-2 py-0.5 rounded">Partner</span>
+                  <div className="w-28 h-28 lg:w-32 lg:h-32 bg-white rounded-md flex items-center justify-center overflow-hidden border border-blue-600/10 shadow">
                     <img
                       src={sponsor.logoUrl}
                       alt={`${sponsor.name} logo`}
-                      className="w-full h-full object-contain p-3"
+                      className="w-full h-full object-contain p-3 grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition"
                       loading="lazy"
                     />
                   </div>

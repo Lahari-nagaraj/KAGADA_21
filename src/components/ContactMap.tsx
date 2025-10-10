@@ -82,7 +82,7 @@ const ContactMap: React.FC = () => {
   return (
     <div className="site-background font-roboto-mono">
       <style>{backgroundStyle}</style>
-      <section id="contact" className="py-16 sm:py-20">
+      <section id="contact" className="py-6 sm:py-8">
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto">
             <SectionTitle>
