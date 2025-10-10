@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Menu, X, Calendar } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import logo from "../assets/kagada 2025.png"; // ✅ Update path if needed
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -27,7 +28,8 @@ const Header: React.FC = () => {
           background-color: rgba(255, 255, 255, 0.75);
           backdrop-filter: blur(10px);
           border: 1px solid rgba(59, 130, 246, 0.2);
-          background-image: linear-gradient(rgba(59, 130, 246, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
+          background-image: linear-gradient(rgba(59, 130, 246, 0.05) 1px, transparent 1px),
+                            linear-gradient(90deg, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
           background-size: 2rem 2rem;
         }
       `}</style>
@@ -45,17 +47,21 @@ const Header: React.FC = () => {
         >
           <div className="flex items-center justify-between p-4">
             {/* Logo */}
-            <a
-              href="#"
-              className="font-rajdhani text-3xl font-bold text-slate-900"
-            >
-              KAGADA <span className="text-blue-600">'25</span>
+            <a href="#" className="flex items-center">
+              <img
+                src={logo}
+                alt="Kagada Logo"
+                className="max-h-10 w-auto object-contain transition-transform duration-300 hover:scale-105"
+              />
             </a>
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center gap-6 font-roboto-mono text-sm font-semibold">
               {navLinks.map((link) => {
-                const href = link === "Prize Pool" ? "#prizes" : `#${link.toLowerCase().replace(/\s+/g, '-')}`;
+                const href =
+                  link === "Prize Pool"
+                    ? "#prizes"
+                    : `#${link.toLowerCase().replace(/\s+/g, "-")}`;
                 return (
                   <a
                     key={link}
@@ -95,10 +101,14 @@ const Header: React.FC = () => {
           <div className="flex justify-between items-center mb-16">
             <a
               href="#"
-              className="font-rajdhani text-3xl font-bold text-slate-900"
+              className="flex items-center"
               onClick={() => setIsMenuOpen(false)}
             >
-              KAGADA <span className="text-blue-600">'25</span>
+              <img
+                src={logo}
+                alt="Kagada Logo"
+                className="max-h-10 w-auto object-contain"
+              />
             </a>
             <button
               onClick={() => setIsMenuOpen(false)}
@@ -110,7 +120,10 @@ const Header: React.FC = () => {
 
           <nav className="flex flex-col items-center gap-8 font-roboto-mono text-xl font-semibold">
             {navLinks.map((link) => {
-              const href = link === "Prize Pool" ? "#prizes" : `#${link.toLowerCase().replace(/\s+/g, '-')}`;
+              const href =
+                link === "Prize Pool"
+                  ? "#prizes"
+                  : `#${link.toLowerCase().replace(/\s+/g, "-")}`;
               return (
                 <a
                   key={link}
