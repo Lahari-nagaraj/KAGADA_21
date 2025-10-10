@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
-<<<<<<< HEAD
 import handle from "../assets/handle.png";
-=======
-import logo from "../assets/kagada 2025.png";
->>>>>>> eb22b115b53bc244a3fa16740ba3ac9680d1bb4f
+
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
