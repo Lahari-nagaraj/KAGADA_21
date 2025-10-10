@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
-import logo from "../assets/kagada 2025.png"; // ✅ Update path if needed
+import logo from "../assets/logo.png";
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -55,18 +55,12 @@ const Header: React.FC = () => {
                 </span>
               ) : (
                 <img
-                  src="/assets/kagada.png"
-                  alt="KAGADA"
-                  className="h-10 w-auto"
+                  src={logo}
+                  alt="Kagada Logo"
+                  className="max-h-10 w-auto object-contain transition-transform duration-300 hover:scale-105"
                   onError={() => setLogoError(true)}
                 />
               )}
-            <a href="#" className="flex items-center">
-              <img
-                src={logo}
-                alt="Kagada Logo"
-                className="max-h-10 w-auto object-contain transition-transform duration-300 hover:scale-105"
-              />
             </a>
 
             {/* Desktop Navigation */}
@@ -116,7 +110,6 @@ const Header: React.FC = () => {
             <a
               href="#"
               className="flex items-center"
-              className="flex items-center"
               onClick={() => setIsMenuOpen(false)}
             >
               {logoError ? (
@@ -125,17 +118,12 @@ const Header: React.FC = () => {
                 </span>
               ) : (
                 <img
-                  src="/assets/kagada.png"
-                  alt="KAGADA"
-                  className="h-10 w-auto"
+                  src={logo}
+                  alt="Kagada Logo"
+                  className="max-h-10 w-auto object-contain"
                   onError={() => setLogoError(true)}
                 />
               )}
-              <img
-                src={logo}
-                alt="Kagada Logo"
-                className="max-h-10 w-auto object-contain"
-              />
             </a>
             <button
               onClick={() => setIsMenuOpen(false)}
