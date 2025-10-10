@@ -51,19 +51,19 @@ const PreviousWinners: React.FC = () => {
     {
       title: "Paper Presentation",
       icon: Image,
-      bg: "/poster.png",
+      bg: "https://res.cloudinary.com/dr3ypljez/image/upload/v1759396194/6950be6b-5651-43e2-8a7e-cade88d16a4d_wize9x.jpg",
       link: "https://drive.google.com/drive/folders/14CthRwTQPvgSo7t_LBz21GQYYduK-myK",
     },
     {
       title: "Poster Presentation",
       icon: FileText,
-      bg: "/paper.png",
+      bg: "https://res.cloudinary.com/dr3ypljez/image/upload/v1759396074/Screenshot_2025-10-02_143440_yoo4lb.png",
       link: "https://drive.google.com/drive/folders/1TTTTPN4T3iVWehNnF9VqNnWPY7xn8SA5",
     },
     {
       title: "Project Presentation",
       icon: Cpu,
-      bg: "/project.png",
+      bg: "https://res.cloudinary.com/dr3ypljez/image/upload/v1759396266/20241026_124756_xi3yqo.jpg",
       link: "https://drive.google.com/drive/folders/1TTTTPN4T3iVWehNnF9VqNnWPY7xn8SA5",
     },
   ];
@@ -72,14 +72,14 @@ const PreviousWinners: React.FC = () => {
     <div className="site-background font-roboto-mono">
       <style>{backgroundStyle}</style>
 
-      <section id="winners" className="py-10 sm:py-16">
+      <section id="winners" className="pt-2 pb-10 sm:pt-8 sm:pb-16">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <SectionTitle>
-              Previous <span className="text-blue-600">Winners</span>
+              <span className="text-slate-900">Previous</span> <span className="text-blue-600">Winners</span>
             </SectionTitle>
 
-            <p className="text-center text-slate-600 max-w-2xl mx-auto leading-relaxed -mt-2 mb-10">
+            <p className="text-center text-slate-900 max-w-2xl mx-auto leading-relaxed -mt-2 mb-10 font-poppins">
               Honoring innovation, creativity, and excellence that shaped
               <span className="text-blue-600 font-semibold"> KAGADA’s journey.</span>
             </p>
@@ -111,19 +111,15 @@ const PreviousWinners: React.FC = () => {
                       </div>
                     </div>
 
-                    {/* Motivational Line */}
-                    <p className="text-slate-700 text-sm font-medium italic mb-3">
-                      Dream. Create. Inspire.
-                    </p>
 
                     {/* Button */}
                     <a
                       href={winner.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-center bg-gradient-to-r from-blue-600 to-indigo-500 text-white px-4 py-2.5 rounded-md font-semibold 
-                                 shadow-md hover:from-indigo-500 hover:to-blue-600 transition-all duration-300 hover:scale-105 
-                                 hover:shadow-blue-400/50 focus:ring-2 focus:ring-blue-300 text-sm"
+                      className="text-center bg-blue-50 text-blue-700 px-4 py-2.5 rounded-md font-semibold 
+                                 shadow-md hover:bg-blue-100 transition-all duration-300 hover:scale-105 
+                                 border border-blue-200 focus:ring-2 focus:ring-blue-300 text-sm font-poppins"
                     >
                       Explore Winners
                     </a>

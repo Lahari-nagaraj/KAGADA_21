@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { CheckCircle } from "lucide-react";
+import handle from "../assets/handle.png";
 
 const LoadingScreen: React.FC = () => {
   const [count, setCount] = useState(3);
@@ -59,11 +60,15 @@ const LoadingScreen: React.FC = () => {
         <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.1)_1px,transparent_1px)] bg-[length:2rem_2rem] opacity-50 animate-pulse"></div>
 
         <div className="text-center z-10 animate-fade-in-up">
-          <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold font-rajdhani text-slate-900 mb-4 tracking-wider">
-            KAGADA <span className="text-blue-600">2025</span>
-          </h1>
+          <div className="mb-2">
+            <img
+              src={handle}
+              alt="KAGADA Logo"
+              className="h-32 sm:h-36 md:h-40 lg:h-44 xl:h-48 w-auto mx-auto object-contain"
+            />
+          </div>
 
-          <p className="text-slate-600 text-lg sm:text-xl mb-12">
+          <p className="text-slate-600 text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl mb-12">
             Initializing Conference Interface...
           </p>
 

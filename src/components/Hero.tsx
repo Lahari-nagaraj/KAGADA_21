@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React from "react";
 import { ScrollText, Feather, School, ChevronDown } from "lucide-react";
 
 // Import custom components
@@ -54,8 +54,8 @@ const Hero = () => {
 
         <main className="relative z-20 w-11/12 max-w-5xl p-6 sm:p-10 md:p-12 text-center blueprint-card-light">
           <div className="space-y-6 animate-fade-in-up">
-            <h1 className="text-5xl sm:text-7xl md:text-8xl font-bold font-rajdhani text-slate-900 tracking-wider">
-              KAGADA 2025
+            <h1 className="text-5xl sm:text-7xl md:text-8xl font-bold font-rajdhani tracking-wider">
+              <span className="text-slate-900">KAGADA</span> <span className="text-blue-600">2025</span>
             </h1>
             <p className="font-semibold text-blue-800 text-base sm:text-lg md:text-xl tracking-wider">
               Annual National-Level Technical Student Conference
@@ -68,7 +68,7 @@ const Hero = () => {
               </p>
               <button 
                 onClick={scrollToTracks}
-                className="bg-blue-600/10 text-blue-800 p-3 rounded-full hover:bg-blue-600/20 transition-all duration-300 transform hover:scale-110 shadow-lg border border-blue-600/30 animate-bounce"
+                className="bg-blue-50 text-blue-700 p-3 rounded-full hover:bg-blue-100 transition-all duration-300 transform hover:scale-110 shadow-lg border border-blue-200 animate-bounce"
                 aria-label="Scroll to tracks section"
               >
                 <ChevronDown size={24} />

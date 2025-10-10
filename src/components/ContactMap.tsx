@@ -158,7 +158,7 @@ const ContactMap: React.FC = () => {
                     href={UVCE_DIRECTIONS_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-6 bg-blue-600 text-white font-bold py-3 px-6 rounded-md text-base w-full flex items-center justify-center gap-2 hover:bg-blue-500 transition-all duration-300 transform hover:scale-105"
+                    className="mt-6 bg-blue-50 text-blue-700 font-semibold py-3 px-6 rounded-md text-base w-full flex items-center justify-center gap-2 hover:bg-blue-100 transition-all duration-300 transform hover:scale-105 border border-blue-200 font-poppins"
                   >
                     <MapPin size={18} /> Get Directions
                   </a>

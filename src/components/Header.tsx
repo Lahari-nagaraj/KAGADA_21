@@ -58,7 +58,7 @@ const Header: React.FC = () => {
                 <img
                   src={handle}
                   alt="Kagada Logo"
-                  className="max-h-10 w-auto object-contain transition-transform duration-300 hover:scale-105"
+                  className="h-12 sm:h-14 md:h-16 lg:h-18 w-auto object-contain transition-transform duration-300 hover:scale-105"
                   onError={() => setLogoError(true)}
                 />
               )}
@@ -75,7 +75,7 @@ const Header: React.FC = () => {
                   <a
                     key={link}
                     href={href}
-                    className="text-slate-700 hover:text-blue-600 transition-colors"
+                    className="text-slate-900 hover:text-blue-600 transition-colors font-poppins"
                   >
                     {link}
                   </a>
@@ -121,7 +121,7 @@ const Header: React.FC = () => {
                 <img
                   src={handle}
                   alt="Kagada Logo"
-                  className="max-h-15 w-auto object-contain"
+                  className="h-12 sm:h-14 md:h-16 w-auto object-contain"
                   onError={() => setLogoError(true)}
                 />
               )}
@@ -144,7 +144,7 @@ const Header: React.FC = () => {
                 <a
                   key={link}
                   href={href}
-                  className="text-slate-800 hover:text-blue-600 transition-colors"
+                  className="text-slate-900 hover:text-blue-600 transition-colors font-poppins"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {link}

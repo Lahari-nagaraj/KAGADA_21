@@ -96,7 +96,7 @@ const FAQs: React.FC = () => {
                     className="w-full p-4 sm:p-5 text-left flex justify-between items-center gap-4 hover:bg-blue-600/5 transition-colors duration-200"
                     onClick={() => toggleFAQ(index)}
                   >
-                    <h3 className="text-base sm:text-lg font-bold text-slate-800">
+                    <h3 className="text-base sm:text-lg font-bold text-slate-900 font-poppins">
                       {faq.question}
                     </h3>
                     <div
@@ -119,7 +119,7 @@ const FAQs: React.FC = () => {
                   >
                     <div className="overflow-hidden">
                       <div className="px-4 sm:px-5 pb-5">
-                        <p className="text-slate-600 leading-relaxed text-sm sm:text-base border-t border-blue-600/20 pt-4 whitespace-pre-line">
+                        <p className="text-slate-900 leading-relaxed text-sm sm:text-base border-t border-blue-600/20 pt-4 whitespace-pre-line font-poppins">
                           {faq.answer}
                         </p>
                       </div>

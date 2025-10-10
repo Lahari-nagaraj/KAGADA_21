@@ -233,12 +233,14 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import { ArrowLeft, ArrowRight, Users, BookOpen, Wrench, Heart, Coffee } from "lucide-react";
+import { useScrollAnimation } from "../hooks/useScrollAnimation";
 
 // --- Blueprint background and font ---
 const backgroundStyle = `
-  @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&family=Roboto+Mono:wght@400;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&family=Roboto+Mono:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap');
   .font-rajdhani { font-family: 'Rajdhani', sans-serif; }
   .font-roboto-mono { font-family: 'Roboto Mono', monospace; }
+  .font-poppins { font-family: 'Poppins', sans-serif; }
   .site-background {
     background-color: #f8fafc;
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(226 232 240 / 1)'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e");
@@ -259,6 +261,17 @@ const backgroundStyle = `
     opacity: 1;
     transform: scale(1);
     z-index: 10;
+  }
+  
+  .fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+  }
+  
+  .fade-in-up.animate {
+    opacity: 1;
+    transform: translateY(0);
   }
 `;
 
@@ -323,6 +336,7 @@ export default function ExploreTracksCarousel() {
   const [active, setActive] = useState(0);
   const [pause, setPause] = useState(false);
   const timerRef = useRef<number | null>(null);
+  const { ref: tracksRef, isVisible: tracksVisible } = useScrollAnimation();
 
   useEffect(() => {
     if (pause) return;
@@ -356,13 +370,13 @@ export default function ExploreTracksCarousel() {
       <section id="tracks" className="py-6 sm:py-8">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center mb-12">
-            <h2 className="font-rajdhani text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-slate-800 tracking-wider">
-              Explore Event Tracks
+            <h2 className="font-rajdhani text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-wider">
+              <span className="text-slate-900">Explore Event</span> <span className="text-blue-600">Tracks</span>
             </h2>
           </div>
 
           {/* Carousel Container */}
-          <div className="relative max-w-7xl mx-auto">
+          <div ref={tracksRef} className={`relative max-w-7xl mx-auto fade-in-up ${tracksVisible ? 'animate' : ''}`}>
             <div className="flex items-center justify-center gap-2 sm:gap-4">
               <div className="hidden lg:block w-full max-w-xs">
                 <TrackCard track={tracks[leftIndex]} isActive={false} index={leftIndex} />
@@ -401,6 +415,19 @@ export default function ExploreTracksCarousel() {
                 <ArrowRight size={24} className="group-hover:translate-x-[2px] transition-transform" />
               </button>
             </div>
+
+            <div className="flex justify-center gap-2 mt-6">
+              {tracks.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setActive(index)}
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                    index === active ? "bg-slate-800 scale-125" : "bg-slate-400 hover:bg-slate-600"
+                  }`}
+                  aria-label={`Go to track ${index + 1}`}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -423,44 +450,46 @@ function TrackCard({
 
   return (
     <div
-      className={`track-card ${isActive ? "active-card" : "blur-card"} bg-white rounded-xl shadow-lg overflow-hidden h-[500px] flex flex-col`}
+      className={`track-card ${isActive ? "active-card" : "blur-card"} bg-white rounded-xl shadow-lg overflow-hidden h-[480px] sm:h-[520px] md:h-[560px] flex flex-col`}
       onMouseEnter={() => setPause && setPause(true)}
       onMouseLeave={() => setPause && setPause(false)}
     >
-      <div className="bg-slate-800 p-4 text-center flex-shrink-0">
-        <h3 className="font-rajdhani text-xl sm:text-2xl font-bold text-white leading-tight">
+      <div className="bg-slate-800 p-3 text-center flex-shrink-0">
+        <h3 className="font-rajdhani text-lg sm:text-xl md:text-2xl font-bold text-white leading-tight">
           {track.title}
         </h3>
       </div>
 
-      <div className="flex justify-center px-4 pt-3 flex-shrink-0">
+      <div className="flex justify-center px-3 pt-2 flex-shrink-0">
         <img
           src={track.img}
           alt={track.title}
-          className="rounded-lg shadow-md object-cover w-full h-[160px] bg-gray-100"
+          className="rounded-lg shadow-md object-cover w-full h-[120px] sm:h-[140px] md:h-[160px] bg-gray-100"
         />
       </div>
 
-      <div className="flex flex-col flex-grow px-4 pt-2 pb-3 justify-between min-h-0">
-        <p
-          className="text-slate-700 text-left text-xs leading-relaxed mb-3 overflow-hidden"
-          style={{
-            display: "-webkit-box",
-            WebkitLineClamp: 6,
-            WebkitBoxOrient: "vertical",
-          }}
-        >
+      <div className="flex flex-col flex-grow px-3 pt-1 pb-0 justify-between min-h-0">
+        <p className="text-slate-900 text-justify text-xs sm:text-sm leading-relaxed overflow-hidden flex-grow font-poppins">
           {track.description}
         </p>
       </div>
 
-      {hasRegisterButton && track.registerLink && (
+      {hasRegisterButton && (
+        <div className="px-3 pb-3 flex-shrink-0">
+          <div className="w-full bg-blue-50 text-slate-700 font-medium py-2 sm:py-2.5 px-3 sm:px-4 rounded-lg text-xs sm:text-sm text-center border border-blue-200 font-poppins">
+            Registrations will be opening soon
+          </div>
+        </div>
+      )}
+      
+      {/* Commented out register button - will be restored later */}
+      {/* {hasRegisterButton && track.registerLink && (
         <div className="px-4 pb-3 flex-shrink-0">
           <a
             href={track.registerLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="block w-full bg-slate-700 text-white font-semibold py-2.5 px-4 rounded-lg text-sm hover:bg-slate-800 transition-all transform hover:scale-105 shadow-md text-center"
+            className="block w-full bg-slate-700 text-white font-semibold py-2 sm:py-2.5 px-3 sm:px-4 rounded-lg text-xs sm:text-sm hover:bg-slate-800 transition-all transform hover:scale-105 shadow-md text-center"
             onClick={(e) => {
               e.stopPropagation();
               setPause && setPause(true);
@@ -469,7 +498,7 @@ function TrackCard({
             Register Now
           </a>
         </div>
-      )}
+      )} */}
     </div>
   );
 }

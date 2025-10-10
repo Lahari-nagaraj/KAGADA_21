@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { Zap, Globe, Users, Star, Trophy, Rocket } from "lucide-react";
+import { Users, Star, Trophy, Rocket } from "lucide-react";
 import logo2 from "../assets/logo2.png";
+import { useScrollAnimation } from "../hooks/useScrollAnimation";
 
 // --- Reusable "Highlighted Glass Pane" Card Style ---
 const cardStyle = `bg-slate-50/60 backdrop-blur-xl border-2 border-blue-500/30 shadow-2xl rounded-lg`;
@@ -19,20 +20,58 @@ const SectionTitle: React.FC<{ children: React.ReactNode }> = ({
 
 // --- Combined About Page Component ---
 const AboutPage = () => {
+  const { ref: uvceRef, isVisible: uvceVisible } = useScrollAnimation();
+  const { ref: ieeeRef, isVisible: ieeeVisible } = useScrollAnimation();
+  const { ref: kagadaRef, isVisible: kagadaVisible } = useScrollAnimation();
+
   return (
     <div className="site-background">
       <style>{`
         /* --- Google Font Imports --- */
-        @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&family=Roboto+Mono:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&family=Roboto+Mono:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap');
         
         .font-rajdhani { font-family: 'Rajdhani', sans-serif; }
         .font-roboto-mono { font-family: 'Roboto Mono', monospace; }
+        .font-poppins { font-family: 'Poppins', sans-serif; }
 
         .site-background {
           background-color: #f8fafc; /* slate-50 */
           background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(226 232 240 / 1)'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e");
           min-height: 100vh;
           width: 100%;
+        }
+        
+        .fade-in-up {
+          opacity: 0;
+          transform: translateY(30px);
+          transition: all 0.6s ease-out;
+        }
+        
+        .fade-in-up.animate {
+          opacity: 1;
+          transform: translateY(0);
+        }
+        
+        .fade-in-left {
+          opacity: 0;
+          transform: translateX(-30px);
+          transition: all 0.6s ease-out;
+        }
+        
+        .fade-in-left.animate {
+          opacity: 1;
+          transform: translateX(0);
+        }
+        
+        .fade-in-right {
+          opacity: 0;
+          transform: translateX(30px);
+          transition: all 0.6s ease-out;
+        }
+        
+        .fade-in-right.animate {
+          opacity: 1;
+          transform: translateX(0);
         }
       `}</style>
       {/* Mobile truncation helper */}
@@ -43,14 +82,14 @@ const AboutPage = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <SectionTitle>
-              About <span className="text-blue-600">UVCE</span>
+              <span className="text-slate-900">About</span> <span className="text-blue-600">UVCE</span>
             </SectionTitle>
-            <div className={`${cardStyle} p-8 sm:p-12`}>
+            <div ref={uvceRef} className={`${cardStyle} p-8 sm:p-12 fade-in-up ${uvceVisible ? 'animate' : ''}`}>
               <div className="grid md:grid-cols-2 gap-12 items-center">
                 <div className="space-y-6">
                   {/* Mobile-only truncation wrapper */}
                   <MobileTruncated>
-                    <p className="text-slate-700 leading-relaxed text-justify">
+                    <p className="text-slate-900 leading-relaxed text-justify text-sm sm:text-base md:text-lg font-poppins">
                     <b>University of Visvesvaraya College of Engineering</b>,
                     established in <b>1917</b> by{" "}
                     <b>Bharat Ratna Sir M Visvesvaraya</b>. UVCE stands as the
@@ -94,14 +133,14 @@ const AboutPage = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <SectionTitle>
-              About <span className="text-blue-600">IEEE UVCE</span>
+              <span className="text-slate-900">About</span> <span className="text-blue-600">IEEE UVCE</span>
             </SectionTitle>
 
-            <div className={`${cardStyle} p-8 sm:p-12`}>
+            <div ref={ieeeRef} className={`${cardStyle} p-8 sm:p-12 fade-in-up ${ieeeVisible ? 'animate' : ''}`}>
               <div className="grid md:grid-cols-2 gap-12 items-center">
                 <div>
                   <MobileTruncated>
-                    <p className="text-slate-700 leading-relaxed text-justify">
+                    <p className="text-slate-900 leading-relaxed text-justify text-sm sm:text-base md:text-lg font-poppins">
                     <b>IEEE UVCE</b> is an IEEE student branch at the{" "}
                     <b>University of Visvesvaraya College of Engineering</b>,
                     under the aegis of the IEEE Bangalore Section. Started in
@@ -153,14 +192,14 @@ const AboutPage = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto">
             <SectionTitle>
-              About <span className="text-blue-600">KAGADA</span>
+              <span className="text-slate-900">About</span> <span className="text-blue-600">KAGADA</span>
             </SectionTitle>
 
-            <div className={`${cardStyle} p-8 sm:p-12`}>
+            <div ref={kagadaRef} className={`${cardStyle} p-8 sm:p-12 fade-in-up ${kagadaVisible ? 'animate' : ''}`}>
               <div className="grid lg:grid-cols-2 gap-12 items-center">
                 <div>
                   <MobileTruncated>
-                    <p className="text-slate-700 leading-relaxed text-justify mb-6">
+                    <p className="text-slate-700 leading-relaxed text-justify mb-6 text-sm sm:text-base md:text-lg">
                     <b>KAGADA</b> is our esteemed{" "}
                     <b>Annual National-Level Technical Student Conference</b>,
                     showcasing{" "}
@@ -182,7 +221,7 @@ const AboutPage = () => {
                     Participants emerge as more capable and well-rounded
                     engineers.
                     </p>
-                    <p className="text-slate-700 leading-relaxed text-justify">
+                    <p className="text-slate-900 leading-relaxed text-justify text-sm sm:text-base md:text-lg font-poppins">
                     Additionally, KAGADA features initiatives like{" "}
                     <b>"Ottige Kaliyona,"</b> which teaches government school
                     students to utilize technology and develop social skills,
@@ -192,7 +231,7 @@ const AboutPage = () => {
                   </MobileTruncated>
                 </div>
 
-                <div className="grid grid-cols-2 gap-4 sm:gap-6">
+                <div className="grid grid-cols-2 gap-3 sm:gap-4 md:gap-6">
                   {[
                     {
                       icon: Star,
@@ -209,16 +248,16 @@ const AboutPage = () => {
                   ].map((stat, index) => (
                     <div
                       key={index}
-                      className="bg-blue-600/5 p-4 rounded-lg border border-blue-600/10 text-center transform hover:scale-105 transition-transform duration-300"
+                      className="bg-blue-600/5 p-3 sm:p-4 rounded-lg border border-blue-600/10 text-center transform hover:scale-105 transition-transform duration-300"
                     >
                       <stat.icon
                         className="text-blue-600 mb-2 mx-auto"
-                        size={28}
+                        size={24}
                       />
-                      <div className="text-2xl sm:text-3xl font-bold text-slate-800">
+                      <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-slate-800">
                         {stat.value}
                       </div>
-                      <div className="text-xs text-slate-600">{stat.label}</div>
+                      <div className="text-xs sm:text-sm text-slate-900 font-poppins">{stat.label}</div>
                     </div>
                   ))}
                 </div>
