@@ -151,24 +151,23 @@ const AboutPage = () => {
                     conferences. It also{" "}
                     <b>supports various technical interest groups</b>, offering
                     guidance and a nurturing platform for students. IEEE UVCE
-                    enriches students' experiences with social, cultural, and
+                    enriches students experiences with social, cultural, and
                     technical events, encourages the use of IEEE membership
                     benefits, and <b>promotes collaboration</b> with the global
                     IEEE community. It has become one of the{" "}
                     <b>most recognized student branches in IEEE Region 10.</b>{" "}
-                    This year is particularly special as IEEE UVCE celebrates
+                    IEEE UVCE celebrates
                     its{" "}
                     <b>
-                      Silver Jubilee, marking 25 years of fostering innovation,
+                       25 years of fostering innovation,
                       professional growth, and academic excellence among
                       students.
                     </b>{" "}
                     To commemorate this milestone, a series of special events
                     and activities are planned. This year aims to honour the
-                    legacy of IEEE UVCE and its impact on countless students'
+                    legacy of IEEE UVCE and its impact on countless students
                     lives, highlighting the achievements of its members and
-                    their contributions to the engineering field. The{" "}
-                    <b>Silver Jubilee</b> is a testament to the branch's
+                    their contributions to the engineering field. Every year is a testament to the branch's
                     enduring <b>commitment to excellence</b> and its pivotal
                     role in shaping future engineers.
                     </p>
