@@ -83,7 +83,7 @@ const PrizePool: React.FC = () => {
                     <span className="text-slate-800">
                       Paper, Poster, and Project
                     </span>{" "}
-                    presentations, celebrating creativity, technical excellence,
+                    presentations, celebrating creativity, technical excellence
                     and impactful ideas.
                   </p>
                 </div>
