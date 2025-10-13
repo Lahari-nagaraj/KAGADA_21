@@ -47,7 +47,7 @@ const AfterMovies: React.FC = () => {
       duration: "1:30",
       video: video2024,
       description:
-        "Relive the excitement and energy of KAGADA 2024 with highlights from all events, competitions, and celebrations.",
+        "Relive the excitement and energy of KAGADA 20 with highlights from all events, competitions, and celebrations.",
     },
     {
       title: "KAGADA 2023",
