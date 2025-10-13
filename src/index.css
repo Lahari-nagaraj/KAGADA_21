@@ -20,6 +20,22 @@
 
 /* Custom Utilities */
 @layer utilities {
+  /* Compact vertical spacing on touch devices even when desktop-site is forced */
+  @media (hover: none) and (pointer: coarse) {
+    .compact-spacing section {
+      padding-top: 0.5rem !important; /* ~py-2 */
+      padding-bottom: 0.5rem !important;
+    }
+    .compact-spacing .mb-12, .compact-spacing .mb-16, .compact-spacing .mt-12, .compact-spacing .mt-16,
+    .compact-spacing .py-10, .compact-spacing .py-12, .compact-spacing .py-16, .compact-spacing .py-20,
+    .compact-spacing .pt-10, .compact-spacing .pt-12, .compact-spacing .pt-16, .compact-spacing .pt-20,
+    .compact-spacing .pb-10, .compact-spacing .pb-12, .compact-spacing .pb-16, .compact-spacing .pb-20 {
+      margin-top: 0.5rem !important;
+      margin-bottom: 0.5rem !important;
+      padding-top: 0.5rem !important;
+      padding-bottom: 0.5rem !important;
+    }
+  }
   /* Font Family Helpers */
   .font-rajdhani { font-family: 'Rajdhani', sans-serif; }
   .font-roboto-mono { font-family: 'Roboto Mono', monospace; }

@@ -195,7 +195,7 @@ const PreviousWinners: React.FC = () => {
       title: "Project Presentation",
       icon: Cpu,
       bg: "https://res.cloudinary.com/dr3ypljez/image/upload/v1759396266/20241026_124756_xi3yqo.jpg",
-      link: "https://drive.google.com/drive/folders/1TTTTPN4T3iVWehNnF9VqNnWPY7xn8SA5",
+      link: "https://drive.google.com/drive/folders/17ktvAfeYfGy75NK8MLuJXPb5PvbG2GXO",
     },
   ];
 

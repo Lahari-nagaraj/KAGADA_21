@@ -539,7 +539,7 @@ const tracks = [
     id: "food",
     title: "Food for Cause",
     icon: Coffee,
-    description: `The event is conducted by ECE students of UVCE where food stalls serve a variety of delicious foods to visitors. The profits collected from these stalls are donated to an NGO, supporting a meaningful cause. Along with enjoying good food, attendees also get to engage with the vibrant student community, making the event both fun and impactful.`,
+    description: `The event is conducted by ECE students of UVCE setup food stalls serve a variety of delicious foods to visitors. The profits collected from these stalls are donated to an NGO, supporting a meaningful cause. Along with enjoying good food, attendees also get to engage with the vibrant student community, making the event both fun and impactful.`,
     img: "https://res.cloudinary.com/dr3ypljez/image/upload/v1759396128/Screenshot_2025-10-02_143521_i6bymk.png",
     fee: "As per menu",
   },

@@ -82,7 +82,7 @@ function App() {
   }
 
   return (
-    <div className="bg-white">
+    <div className="bg-white compact-spacing">
       <Header />
       <Hero />
       <About />
