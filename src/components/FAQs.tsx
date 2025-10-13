@@ -41,7 +41,7 @@ const FAQs: React.FC = () => {
     {
       question: "What is KAGADA and when is it?",
       answer:
-        "KAGADA is an Annual National Level Technical Student Conference conducted by IEEE UVCE. It will be held on 18th November, 2025.",
+        "KAGADA is an Annual National Level Technical Student Conference conducted by IEEE UVCE. It will be held on 8th November, 2025.",
     },
     {
       question: "What can I present in KAGADA?",
