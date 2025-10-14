@@ -722,7 +722,7 @@ const AboutPage = () => {
                       src="https://th-i.thgim.com/public/incoming/mgxxq/article65508289.ece/alternates/FREE_1200/UVCE_03.jpg"
                       alt="UVCE College Campus"
                       className="w-full h-64 object-cover rounded-lg shadow-md"
-                    />
+                    />              
                     <div className="bg-blue-600/5 p-4 rounded-lg border border-blue-600/10 text-center">
                       <div className="text-3xl font-bold text-slate-800">100+</div>
                       <div className="text-sm text-slate-600">Years of Legacy</div>
