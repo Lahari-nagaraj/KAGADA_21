@@ -904,7 +904,7 @@ function TrackCard({ track, isActive, setPause }: any) {
 //   // 🎯 Add Google Form links for each registerable track
 //   const registerLinks: Record<string, string> = {
 //     poster: "https://forms.gle/Jc5VKSo7omYjNgeg8",
-//     paper: "https://docs.google.com/forms/d/e/1FAIpQLSe_--0uVjl1dr_A9fdZLxg_22yPnNfP-Gfvaknow9CVYp8ZfA/viewform",
+//     paper: "https://forms.gle/HmQ7FfWvNayY6KDw5",
 //     project: "https://forms.gle/ny3tNAKFZDmCvwB7A",
 //   };
 
