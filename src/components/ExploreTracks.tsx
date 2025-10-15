@@ -1364,6 +1364,7 @@ const tracks = [
     description: `Poster presentation provides an opportunity to present innovative ideas through technical posters to depict how real-life problems can be solved. Participants are free to choose the domain of their choice and the presentation will be held in hybrid mode. This event encourages creativity, critical thinking, and clear communication of technical concepts. Additionally, participants get a chance to engage with judges and peers, receive valuable feedback, and inspire others with their innovative solutions.`,
     img: "https://res.cloudinary.com/dr3ypljez/image/upload/v1759396074/Screenshot_2025-10-02_143440_yoo4lb.png",
     fee: "₹150 per team",
+    teamSize: "1–3 members",
     registerLink: "https://forms.gle/Jc5VKSo7omYjNgeg8",
   },
   {
@@ -1373,6 +1374,7 @@ const tracks = [
     description: `Paper presentation competition gives participants a chance to present their technical research papers in their domain of interest and lay an initial stone to engrave one's knowledge to serve society with their innovative ideas including categories UG/PG. Paper presentation will be in online mode, allowing participants to showcase their work. It also provides an opportunity to receive constructive feedback from experts, enhancing their research and presentation skills.`,
     img: "https://res.cloudinary.com/dr3ypljez/image/upload/v1759396194/6950be6b-5651-43e2-8a7e-cade88d16a4d_wize9x.jpg",
     fee: "₹200 per team",
+    teamSize: "1–5 members",
     registerLink: "https://forms.gle/HmQ7FfWvNayY6KDw5",
   },
   {
@@ -1382,6 +1384,7 @@ const tracks = [
     description: `Project presentation makes way for students to bring out the inventors in them and their creativity to pure reality through working model demonstrations. This also helps them to display their innovative thoughts on different domains, encouraging problem-solving and critical thinking. The event also helps students gain confidence in presenting their projects, while inspiring peers and fostering a culture of learning and innovation.`,
     img: "https://res.cloudinary.com/dr3ypljez/image/upload/v1759396266/20241026_124756_xi3yqo.jpg",
     fee: "₹180 per team",
+    teamSize: "1–5 members",
     registerLink: "https://forms.gle/nrogZZs2bYWsvsGw5",
   },
   {
@@ -1513,7 +1516,7 @@ export default function ExploreTracksCarousel() {
   );
 }
 
-// ✅ TrackCard with Register Now links for each track
+// ✅ Updated TrackCard with team size included
 function TrackCard({ track, isActive, setPause }: any) {
   const hasRegisterButton = ["poster", "paper", "project"].includes(track.id);
   const [timeLeft, setTimeLeft] = useState<number>(0);
@@ -1584,13 +1587,18 @@ function TrackCard({ track, isActive, setPause }: any) {
         </p>
       </div>
 
-      {/* Footer Section — Fee + Countdown/Register */}
+      {/* Footer Section — Fee + Team Size + Countdown/Register */}
       {hasRegisterButton && (
         <div className="px-3 pb-4 mt-auto flex flex-col items-center gap-2">
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 text-xs sm:text-sm text-slate-700 font-poppins shadow-sm flex items-center justify-center w-full">
+          <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 text-xs sm:text-sm text-slate-700 font-poppins shadow-sm w-full">
             <p className="m-0 text-center">
               <strong>Fee:</strong> {track.fee}
             </p>
+            {track.teamSize && (
+              <p className="m-0 text-center mt-1">
+                <strong>Team Size:</strong> {track.teamSize}
+              </p>
+            )}
           </div>
 
           {timeLeft > 0 ? (
