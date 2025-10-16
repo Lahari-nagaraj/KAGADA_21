@@ -218,9 +218,9 @@ function TrackCard({ track, isActive, setPause }: any) {
 
     const now = new Date();
     const openTimes: Record<string, string> = {
-      poster: "13:00:00",
-      paper: "11:00:00",
-      project: "15:00:00",
+      poster: "0:00:00",
+      paper: "0:00:00",
+      project: "0:00:00",
     };
 
     const targetTime = new Date(
