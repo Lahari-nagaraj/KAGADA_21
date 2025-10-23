@@ -76,7 +76,7 @@ const tracks = [
     description: `Project presentation makes way for students to bring out the inventors in them and their creativity to pure reality through working model demonstrations. This also helps them to display their innovative thoughts on different domains, encouraging problem-solving and critical thinking. The event also helps students gain confidence in presenting their projects, while inspiring peers and fostering a culture of learning and innovation.`,
     img: "https://res.cloudinary.com/dr3ypljez/image/upload/v1759396266/20241026_124756_xi3yqo.jpg",
     fee: "₹180 per team",
-    teamSize: "1–5 members",
+    teamSize: "1–4 members",
     registerLink: "https://forms.gle/nrogZZs2bYWsvsGw5",
   },
   {
