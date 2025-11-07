@@ -1,5 +1,11 @@
 import React from "react";
 import { Handshake } from "lucide-react";
+import spo1 from "../assets/spo1.png";
+import spo2 from "../assets/spo2.png";
+import spo3 from "../assets/spo3.png";
+import spo4 from "../assets/spo4.png";
+import spon5 from "../assets/spon5.png";
+import spo6 from "../assets/spo6.png";
 
 // --- Blueprint SVG Grid Background Style ---
 const backgroundStyle = `
@@ -30,14 +36,12 @@ const SectionTitle: React.FC<{ children: React.ReactNode }> = ({
 );
 
 const sponsorLogos: string[] = [
-
-  "src/assets/spo1.png",
-  "src/assets/spo2.png",
-   "src/assets/spo3.png",
-    "src/assets/spo4.png",
-     "src/assets/spon5.png",
-      "src/assets/spo6.png",
- 
+  spo1,
+  spo2,
+  spo3,
+  spo4,
+  spon5,
+  spo6,
 ];
 
 const Sponsors: React.FC = () => {
@@ -53,16 +57,16 @@ const Sponsors: React.FC = () => {
             </SectionTitle>
 
             <div className="mx-auto">
-              <div className="grid grid-cols-3 gap-6 sm:gap-8 items-center justify-items-center">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-center justify-items-center">
                 {sponsorLogos.map((logo, index) => (
                   <div
-                    key={logo}
-                    className="flex items-center justify-center"
+                    key={index}
+                    className="flex items-center justify-center w-full"
                   >
                     <img
                       src={logo}
                       alt={`Sponsor logo ${index + 1}`}
-                      className="max-h-16 sm:max-h-20 object-contain"
+                      className="max-h-16 sm:max-h-20 lg:max-h-24 object-contain"
                       loading="lazy"
                     />
                   </div>
