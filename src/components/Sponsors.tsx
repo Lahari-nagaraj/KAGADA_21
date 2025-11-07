@@ -1,10 +1,5 @@
 import React from "react";
-import { ExternalLink, Handshake } from "lucide-react";
-
-// --- Reusable Blueprint Card Style ---
-const cardStyle = `bg-white/70 backdrop-blur-md border border-blue-600/20 shadow-lg rounded-lg
-                   bg-[linear-gradient(rgba(59,130,246,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.05)_1px,transparent_1px)] 
-                   bg-[length:2rem_2rem]`;
+import { Handshake } from "lucide-react";
 
 // --- Blueprint SVG Grid Background Style ---
 const backgroundStyle = `
@@ -34,28 +29,15 @@ const SectionTitle: React.FC<{ children: React.ReactNode }> = ({
   </div>
 );
 
-type Sponsor = {
-  name: string;
-  logoUrl: string;
-  website: string;
-};
+const sponsorLogos: string[] = [
 
-const sponsors: Sponsor[] = [
-  {
-    name: "IEEE UVCE",
-    logoUrl: "https://ieeeuvce.in/img/logo.png",
-    website: "https://ieeeuvce.in",
-  },
-  {
-    name: "UVCE Alumni Association",
-    logoUrl: "https://uvcega.org/wp-content/uploads/2022/12/uvcega-logo.png",
-    website: "https://uvcega.org",
-  },
-  {
-    name: "UVCE",
-    logoUrl: "https://uvce.ac.in/img/logo.png",
-    website: "https://uvce.ac.in",
-  },
+  "src/assets/spo1.png",
+  "src/assets/spo2.png",
+   "src/assets/spo3.png",
+    "src/assets/spo4.png",
+     "src/assets/spon5.png",
+      "src/assets/spo6.png",
+ 
 ];
 
 const Sponsors: React.FC = () => {
@@ -66,73 +48,26 @@ const Sponsors: React.FC = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
             <SectionTitle>
-              <span className="text-blue-600">Our Sponsors</span>
+              <span className="text-slate-900">Our </span>
+              <span className="text-blue-600">Sponsors</span>
             </SectionTitle>
 
-            {/* Mobile: horizontal snap carousel */}
-            <div className="md:hidden -mx-4 px-4">
-              <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-2">
-                {sponsors.map((sponsor) => (
+            <div className="mx-auto">
+              <div className="grid grid-cols-3 gap-6 sm:gap-8 items-center justify-items-center">
+                {sponsorLogos.map((logo, index) => (
                   <div
-                    key={sponsor.name}
-                    className={`${cardStyle} snap-center min-w-[80%] p-6 relative flex flex-col items-center text-center hover:-rotate-1 transition-transform`}
+                    key={logo}
+                    className="flex items-center justify-center"
                   >
-                    <span className="absolute top-2 right-2 text-[10px] uppercase tracking-wide bg-blue-600 text-white px-2 py-0.5 rounded">Partner</span>
-                    <div className="w-28 h-28 bg-white rounded-md flex items-center justify-center overflow-hidden border border-blue-600/10 shadow">
-                      <img
-                        src={sponsor.logoUrl}
-                        alt={`${sponsor.name} logo`}
-                        className="w-full h-full object-contain p-3 grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition"
-                        loading="lazy"
-                      />
-                    </div>
-                    <h3 className="mt-4 font-rajdhani text-2xl font-bold text-slate-900">{sponsor.name}</h3>
-                    <a
-                      href={sponsor.website}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mt-4 inline-flex items-center gap-2 bg-blue-600 text-white font-semibold py-2 px-4 rounded-md hover:bg-blue-500 transition-colors"
-                      aria-label={`Visit ${sponsor.name} website`}
-                    >
-                      Explore More
-                      <ExternalLink size={16} />
-                    </a>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Desktop/tablet: clean grid */}
-            <div className="hidden md:grid grid-cols-2 lg:grid-cols-3 gap-6">
-              {sponsors.map((sponsor) => (
-                <div key={sponsor.name} className={`${cardStyle} p-6 relative flex flex-col items-center text-center hover:-rotate-1 transition-transform`}>
-                  <span className="absolute top-2 right-2 text-[10px] uppercase tracking-wide bg-blue-600 text-white px-2 py-0.5 rounded">Partner</span>
-                  <div className="w-28 h-28 lg:w-32 lg:h-32 bg-white rounded-md flex items-center justify-center overflow-hidden border border-blue-600/10 shadow">
                     <img
-                      src={sponsor.logoUrl}
-                      alt={`${sponsor.name} logo`}
-                      className="w-full h-full object-contain p-3 grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition"
+                      src={logo}
+                      alt={`Sponsor logo ${index + 1}`}
+                      className="max-h-16 sm:max-h-20 object-contain"
                       loading="lazy"
                     />
                   </div>
-                  <h3 className="mt-4 font-rajdhani text-2xl font-bold text-slate-900">{sponsor.name}</h3>
-                  <a
-                    href={sponsor.website}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-4 inline-flex items-center gap-2 bg-blue-600 text-white font-semibold py-2 px-4 rounded-md hover:bg-blue-500 transition-colors"
-                    aria-label={`Visit ${sponsor.name} website`}
-                  >
-                    Explore More
-                    <ExternalLink size={16} />
-                  </a>
-                </div>
-              ))}
-            </div>
-
-            {/* Optional CTA Row */}
-            <div className="mt-8 text-center text-slate-600">
-              Interested in sponsoring? <a href="#contact" className="text-blue-700 font-semibold hover:underline">Contact us</a>.
+                ))}
+              </div>
             </div>
           </div>
         </div>

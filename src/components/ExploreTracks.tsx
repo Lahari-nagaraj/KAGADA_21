@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   ArrowLeft,
   ArrowRight,
@@ -211,42 +211,6 @@ export default function ExploreTracksCarousel() {
 // ✅ Updated TrackCard with team size included
 function TrackCard({ track, isActive, setPause }: any) {
   const hasRegisterButton = ["poster", "paper", "project"].includes(track.id);
-  const [timeLeft, setTimeLeft] = useState<number>(0);
-
-  useEffect(() => {
-    if (!hasRegisterButton) return;
-
-    const now = new Date();
-    const openTimes: Record<string, string> = {
-      poster: "0:00:00",
-      paper: "0:00:00",
-      project: "0:00:00",
-    };
-
-    const targetTime = new Date(
-      `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}T${
-        openTimes[track.id]
-      }`
-    ).getTime();
-
-    const updateCountdown = () => {
-      const diff = targetTime - new Date().getTime();
-      setTimeLeft(diff > 0 ? diff : 0);
-    };
-
-    updateCountdown();
-    const interval = setInterval(updateCountdown, 1000);
-    return () => clearInterval(interval);
-  }, [track.id, hasRegisterButton]);
-
-  const formatTime = (ms: number) => {
-    const hours = Math.floor(ms / (1000 * 60 * 60));
-    const minutes = Math.floor((ms % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((ms % (1000 * 60)) / 1000);
-    return `${hours.toString().padStart(2, "0")}h ${minutes
-      .toString()
-      .padStart(2, "0")}m ${seconds.toString().padStart(2, "0")}s`;
-  };
 
   return (
     <div
@@ -293,20 +257,9 @@ function TrackCard({ track, isActive, setPause }: any) {
             )}
           </div>
 
-          {timeLeft > 0 ? (
-            <div className="w-full py-2 px-3 rounded-lg text-xs sm:text-sm text-center border bg-blue-50 border-blue-200 text-slate-700 font-medium">
-              🕒 Registrations open in {formatTime(timeLeft)}
-            </div>
-          ) : (
-            <a
-              href={track.registerLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full py-2 px-3 rounded-lg text-sm sm:text-base text-center font-semibold text-white bg-blue-600 hover:bg-blue-700 transition-colors shadow-md"
-            >
-              Register Now
-            </a>
-          )}
+          <div className="w-full py-3 px-4 rounded-lg text-sm sm:text-base text-center font-semibold text-white bg-slate-800 shadow-md">
+            Registrations closed! See you at KAGADA 2026.
+          </div>
         </div>
       )}
     </div>

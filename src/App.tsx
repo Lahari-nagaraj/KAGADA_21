@@ -95,6 +95,7 @@ function App() {
       <PreviousWinners />
       <Gallery />
       <AfterMovies />
+      <Sponsors/>
       <FAQs />
       <ContactMap />
       <Footer />
