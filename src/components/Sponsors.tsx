@@ -35,13 +35,21 @@ const SectionTitle: React.FC<{ children: React.ReactNode }> = ({
   </div>
 );
 
-const sponsorLogos: string[] = [
-  spo1,
-  spo2,
-  spo3,
-  spo4,
-  spon5,
-  spo6,
+// Define a type for the sponsor data
+interface SponsorData {
+  img: string;
+  url: string;
+}
+
+// --- UPDATED DATA STRUCTURE ---
+// Add your real URLs here in place of '#'
+const sponsors: SponsorData[] = [
+  { img: spo1, url: "https://ieeebangalore.org" },
+  { img: spo2, url: "https://cybersecurity.ieee.org" },
+  { img: spo3, url: "#" },
+  { img: spo4, url: "https://sight.ieee.org" },
+  { img: spon5, url: "https://www.insightsonindia.com" },
+  { img: spo6, url: "https://www.ieeefoundation.org" },
 ];
 
 const Sponsors: React.FC = () => {
@@ -58,18 +66,21 @@ const Sponsors: React.FC = () => {
 
             <div className="mx-auto">
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-center justify-items-center">
-                {sponsorLogos.map((logo, index) => (
-                  <div
+                {sponsors.map((sponsor, index) => (
+                  <a
                     key={index}
-                    className="flex items-center justify-center w-full"
+                    href={sponsor.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center w-full group transition-transform hover:scale-105"
                   >
                     <img
-                      src={logo}
+                      src={sponsor.img}
                       alt={`Sponsor logo ${index + 1}`}
-                      className="max-h-16 sm:max-h-20 lg:max-h-24 object-contain"
+                      className="max-h-16 sm:max-h-20 lg:max-h-24 object-contain opacity-90 group-hover:opacity-100 transition-opacity"
                       loading="lazy"
                     />
-                  </div>
+                  </a>
                 ))}
               </div>
             </div>
@@ -81,5 +92,3 @@ const Sponsors: React.FC = () => {
 };
 
 export default Sponsors;
-
-
